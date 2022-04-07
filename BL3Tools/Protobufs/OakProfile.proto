@@ -2,7 +2,7 @@ syntax = "proto3";
 package OakSave;
 import "Protobufs/OakShared.proto";
 message PlayerInputBinding_Button {
-  string rebind_data_path = 1;
+  string rebind_name = 1;
   repeated string key_names = 2;
 }
 message PlayerInputBinding_Axis_Key {
@@ -10,17 +10,16 @@ message PlayerInputBinding_Axis_Key {
   Vec3 scale_3d = 2;
 }
 message PlayerInputBinding_Axis {
-  string rebind_data_path = 1;
+  string rebind_name = 1;
   repeated PlayerInputBinding_Axis_Key keys = 2;
 }
-message PlayerInputBinding_Category {
-  string category_data_path = 1;
-  string context_data_path = 2;
-  repeated PlayerInputBinding_Button button_bindings = 3;
-  repeated PlayerInputBinding_Axis axis_bindings = 4;
+message PlayerInputBinding_Schema {
+  string schema_name = 1;
+  repeated PlayerInputBinding_Button button_bindings = 2;
+  repeated PlayerInputBinding_Axis axis_bindings = 3;
 }
 message PlayerInputBindings {
-  repeated PlayerInputBinding_Category categories = 1;
+  repeated PlayerInputBinding_Schema schemas = 1;
 }
 message OakProfileLastInventoryFilterInfo {
   string slot_type_id = 1;
@@ -40,22 +39,20 @@ message GearSoldByFriendData {
   int32 player_class_identifier_hash = 2;
   string friend_net_id = 3;
 }
-message GuardianRankRewardSaveGameData {
-  int32 num_tokens = 1;
-  string reward_data_path = 2;
-}
-message GuardianRankProfileData {
-  int32 available_tokens = 1;
-  repeated GuardianRankRewardSaveGameData rank_rewards = 2;
-  int32 guardian_rank = 3;
-  int32 guardian_experience = 4;
-  int32 guardian_reward_random_seed = 5;
-  int64 new_guardian_experience = 6;
+message PlayerPrestigeProfileData {
+  int64 prestige_experience = 1;
+  int32 last_upgrade_tree_index = 2;
+  repeated int32 points_spent_by_index_order = 3;
+  bool has_seen_tutorial = 4;
 }
 message RecentlyMetPlayer {
   string shift_player_id = 1;
   string first_party_player_id = 2;
   bool show_shift_player_entry = 3;
+}
+message AcceptedOfflineEULA {
+  int32 id = 1;
+  string version = 2;
 }
 message Profile {
   message FriendEncountersEntry {
@@ -91,6 +88,9 @@ message Profile {
   float speaker_angle_back = 27;
   uint32 speaker_setup = 28;
   bool mute_audio_on_focus_loss = 29;
+  repeated ChallengeSaveGameData challenge_data = 30;
+  bool default_dead_zone_inner_updated = 32;
+  bool disable_event_content = 33;
   bool hide_strict_nat_help_dialog = 34;
   PlayerInputBindings player_input_bindings = 35;
   repeated uint32 news_hashes = 36;
@@ -170,12 +170,11 @@ message Profile {
   repeated string friend_statuses = 110;
   int64 last_whisper_fetch_events_time = 111;
   int64 last_whisper_fetch_statuses_time = 112;
-  uint32 desired_crossplay_state = 113;
   repeated FriendEncountersEntry friend_encounters = 133;
   int32 max_friend_encounter_size = 134;
   repeated GameStatSaveGameData profile_stats_data = 135;
   repeated InventoryCategorySaveData bank_inventory_category_list = 136;
-  repeated bytes bank_inventory_list = 137;
+  uint32 two_player_splitscreen_layout = 137;
   repeated bytes lost_loot_inventory_list = 138;
   repeated OakMailItem npc_mail_items = 139;
   repeated string mail_guids = 140;
@@ -184,9 +183,7 @@ message Profile {
   repeated OakSDUSaveGameData profile_sdu_list = 143;
   repeated OakCustomizationSaveGameData unlocked_customizations = 144;
   repeated OakInventoryCustomizationPartInfo unlocked_inventory_customization_parts = 145;
-  GuardianRankProfileData guardian_rank = 146;
-  repeated CrewQuartersDecorationItemSaveGameData unlocked_crew_quarters_decorations = 147;
-  repeated CrewQuartersRoomItemSaveGameData unlocked_crew_quarters_rooms = 148;
+  bool fixed_initial_zonemap_rotation = 149;
   bool enable_mouse_acceleration = 150;
   bool enable_gamepad_input = 151;
   bool use_classic_gamepad_input = 152;
@@ -220,7 +217,12 @@ message Profile {
   uint32 friend_event_notification_frequency = 180;
   uint32 trade_request_reception_type = 181;
   float head_bob_scale = 182;
+  bool has_reset_console_fov = 183;
   bool has_seen_first_boot = 184;
+  bool badass_event_enabled = 185;
+  bool pinata_event_enabled = 186;
+  int32 min_time_between_badass_events = 187;
+  bool disable_spatial_audio = 188;
   float subs_cc_size = 189;
   float cc_subs_background_opacity = 190;
   uint32 walking_button_scheme = 191;
@@ -232,37 +234,17 @@ message Profile {
   bool auto_centering_enabled = 197;
   bool increased_chance_for_subscribers = 198;
   bool rare_chest_event_enabled = 199;
-  bool badass_event_enabled = 200;
-  bool pinata_event_enabled = 201;
-  int32 min_time_between_badass_events = 202;
-  float hud_scale_multiplier = 203;
-  bool disable_spatial_audio__or__has_reset_console_fov = 204;
-  int32 total_playtime_seconds = 205;
-  bool moxxis_drink_event_enabled = 206;
-  int32 moxxis_drink_event_bits_product_id = 207;
-  repeated ChallengeSaveGameData challenge_data = 208;
-  repeated int32 CitizenScienceLevelProgression = 209;
-  bool default_dead_zone_inner_updated = 210;
-  bool disable_event_content = 211;
-  uint32 desired_friend_sync_state = 212;
-  bool needs_shift_first_boot = 213;
-  repeated RecentlyMetPlayer recently_met_players = 214;
-  int32 CitizenScienceActiveBoosterIndex = 215;
-  float CitizenScienceActiveBoosterRemainingTime = 216;
-  float CitizenScienceActiveBoosterTotalTime = 217;
-  int32 StreamerPrimaryActiveBoosterIndex = 218;
-  float StreamerPrimaryActiveBoosterRemainingTime = 219;
-  float StreamerPrimaryActiveBoosterTotalTime = 220;
-  int32 StreamerSecondaryActiveBoosterIndex = 221;
-  float StreamerSecondaryActiveBoosterRemainingTime = 222;
-  float StreamerSecondaryActiveBoosterTotalTime = 223;
-  int32 StreamerBoosterTier = 224;
-  int32 CitizenScienceCSBucksAmount = 226;
-  bool bCitizenScienceHasSeenIntroVideo = 227;
-  bool bCitizenScienceTutorialDone = 228;
-  bool enable_trigger_feedback = 229;
-  bool fixed_initial_zonemap_rotation = 230;
-  VaultCardSaveGameData vault_card = 231;
-  uint32 player_selected_league = 232;
-  bool needs_shift_first_boot_primary = 233;
+  float hud_scale_multiplier = 200;
+  int32 total_playtime_seconds = 201;
+  uint32 desired_crossplay_state = 202;
+  uint32 desired_friend_sync_state = 203;
+  bool needs_shift_first_boot = 204;
+  repeated RecentlyMetPlayer recently_met_players = 205;
+  bool enable_trigger_feedback = 206;
+  float camera_shake_scale = 207;
+  PlayerPrestigeProfileData player_prestige = 208;
+  bool needs_shift_first_boot_primary = 209;
+  repeated AcceptedOfflineEULA accepted_offline_eulas = 210;
+  string override_audio_language = 211;
+  repeated OakInventoryItemSaveGameData bank_inventory_list = 212;
 }

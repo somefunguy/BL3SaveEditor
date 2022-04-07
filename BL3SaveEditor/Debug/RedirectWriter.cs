@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace BL3SaveEditor.Debug {
+namespace TTWSaveEditor.Debug {
     public class RedirectWriter : StringWriter {
         public Action<String> OnWrite;
 

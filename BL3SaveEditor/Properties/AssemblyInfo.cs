@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Borderlands 3 Save Editor")]
-[assembly: AssemblyDescription("A save and profile editor for Borderlands 3")]
+[assembly: AssemblyTitle("Tiny Tina's Wonderlands Save Editor")]
+[assembly: AssemblyDescription("A save and profile editor for Tiny Tina's Wonderlands based on the FromDarkHell's BL3 save and profile editor.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("FromDarkHell")]
-[assembly: AssemblyProduct("Borderlands 3 Save Editor")]
+[assembly: AssemblyCompany("Arwent")]
+[assembly: AssemblyProduct("Tiny Tina's Wonderlands Save Editor")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -51,6 +51,6 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1.3.0")]
-[assembly: AssemblyFileVersion("1.1.3.0")]
+[assembly: AssemblyVersion("0.1.0.0")]
+[assembly: AssemblyFileVersion("0.1.0.0")]
 [assembly: NeutralResourcesLanguage("en-US")]

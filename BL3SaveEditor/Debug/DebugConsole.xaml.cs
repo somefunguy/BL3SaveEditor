@@ -9,7 +9,7 @@ using MessageBoxImage = AdonisUI.Controls.MessageBoxImage;
 using Ookii.Dialogs.Wpf;
 using System.IO;
 
-namespace BL3SaveEditor.Debug {
+namespace TTWSaveEditor.Debug {
     /// <summary>
     /// Interaction logic for DebugConsole.xaml
     /// </summary>

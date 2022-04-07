@@ -65,40 +65,23 @@ message OakInventoryCustomizationPartInfo {
   uint32 customization_part_hash = 1;
   bool is_new = 2;
 }
-message CrewQuartersDecorationItemSaveGameData {
-  bool is_new = 1;
-  string decoration_item_asset_path = 2;
+message OakProfileCustomizationLinkData {
+  string customization_name = 1;
+  bool active = 2;
 }
-message CrewQuartersRoomItemSaveGameData {
-  bool is_new = 1;
-  string room_item_asset_path = 2;
+message InventoryBalanceStateInitializationData {
+  int32 game_stage = 1;
+  string inventory_data = 2;
+  string inventory_balance_data = 3;
+  string manufacturer_data = 4;
+  repeated string part_list = 5;
+  repeated string generic_part_list = 6;
+  bytes additional_data = 7;
+  repeated string customization_part_list = 8;
 }
-message VaultCardSaveGameData {
-  uint32 last_active_vault_card_id = 2;
-  int32 current_day_seed = 3;
-  int32 current_week_seed = 4;
-  repeated VaultCardPreviousChallenge vault_card_previous_challenges = 5;
-  repeated VaultCardRewardList vault_card_claimed_rewards = 6;
-}
-message VaultCardReward {
-  int32 column_index = 1;
-  int32 row_index = 2;
-}
-message VaultCardGearReward {
-  int32 gear_index = 1;
-  uint32 repurchase_count = 2;
-}
-message VaultCardRewardList {
-  uint32 vault_card_id = 1;
-  int64 vault_card_experience = 2;
-  repeated VaultCardReward unlocked_reward_list = 4;
-  repeated VaultCardReward redeemed_reward_list = 5;
-  int32 vault_card_chests = 7;
-  uint32 vault_card_chests_opened = 8;
-  uint32 vault_card_keys_spent = 9;
-  repeated VaultCardGearReward gear_rewards = 10;
-}
-message VaultCardPreviousChallenge {
-  int32 previous_challenge_seed = 1;
-  uint32 previous_challenge_id = 2;
+message OakInventoryItemSaveGameData {
+  bytes item_serial_number = 1;
+  int32 pickup_order_index = 2;
+  int32 flags = 3;
+  InventoryBalanceStateInitializationData development_save_data = 5;
 }

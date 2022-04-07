@@ -15,28 +15,10 @@ message RegionSaveGameData {
   string region_path = 3;
   uint32 dlc_package_id = 4;
 }
-message InventoryBalanceStateInitializationData {
-  int32 game_stage = 1;
-  string inventory_data = 2;
-  string inventory_balance_data = 3;
-  string manufacturer_data = 4;
-  repeated string part_list = 5;
-  repeated string generic_part_list = 6;
-  bytes additional_data = 7;
-  repeated string customization_part_list = 8;
-}
-message OakInventoryItemSaveGameData {
-  bytes item_serial_number = 1;
-  int32 pickup_order_index = 2;
-  int32 flags = 3;
-  string weapon_skin_path = 4;
-  InventoryBalanceStateInitializationData development_save_data = 5;
-}
 message EquippedInventorySaveGameData {
   int32 inventory_list_index = 1;
   bool enabled = 2;
   string slot_data_path = 3;
-  string trinket_data_path = 4;
 }
 message OakAbilityTreeItemSaveGameData {
   string item_asset_path = 1;
@@ -59,6 +41,14 @@ message OakActionAbilityAugmentConfigurationSaveGameData {
   string mod_slot_asset_path = 3;
   string mod_asset_path = 4;
 }
+message OakDualClassSaveGameData {
+  string primary_branch_path = 1;
+  repeated string unlocked_secondary_branch_paths = 2;
+  string slotted_secondary_branch_path = 3;
+  bool unlocked_class_features = 4;
+  bool unlocked_initial_secondary_class = 5;
+  bool unlocked_secondary_class_swapping = 6;
+}
 message OakPlayerAbilitySaveGameData {
   int32 ability_points = 1;
   repeated OakAbilityTreeItemSaveGameData tree_item_list = 2;
@@ -66,6 +56,8 @@ message OakPlayerAbilitySaveGameData {
   repeated OakActionAbilityAugmentSaveGameData augment_slot_list = 4;
   repeated OakActionAbilityAugmentConfigurationSaveGameData augment_configuration_list = 5;
   int32 tree_grade = 6;
+  OakDualClassSaveGameData dual_class_save_data = 7;
+  uint32 respec_count = 8;
 }
 message MissionStatusPlayerSaveGameData {
   enum MissionState {
@@ -82,7 +74,6 @@ message MissionStatusPlayerSaveGameData {
   string active_objective_set_path = 5;
   uint32 dlc_package_id = 6;
   bool kickoff_played = 7;
-  uint32 league_instance = 8;
 }
 message MissionPlaythroughSaveGameData {
   repeated MissionStatusPlayerSaveGameData mission_list = 1;
@@ -136,46 +127,12 @@ message CustomPlayerColorSaveGameData {
   Vec3 split_color = 3;
   bool use_default_color = 4;
   bool use_default_split_color = 5;
+  float applied_color_alpha = 6;
+  float split_color_alpha = 7;
 }
-message GuardianRankSaveGameData {
-  int32 guardian_rank = 1;
-  int32 guardian_experience = 2;
-}
-message GuardianRankRewardCharacterSaveGameData {
-  int32 num_tokens = 1;
-  bool is_enabled = 2;
-  string reward_data_path = 3;
-}
-message GuardianRankPerkCharacterSaveGameData {
-  bool is_enabled = 1;
-  string perk_data_path = 2;
-}
-message GuardianRankCharacterSaveGameData {
-  int32 guardian_available_tokens = 1;
-  int32 guardian_rank = 2;
-  int32 guardian_experience = 3;
-  repeated GuardianRankRewardCharacterSaveGameData rank_rewards = 4;
-  repeated GuardianRankPerkCharacterSaveGameData rank_perks = 5;
-  int32 guardian_reward_random_seed = 6;
-  int64 new_guardian_experience = 7;
-  bool is_rank_system_enabled = 8;
-}
-message CrewQuartersDecorationSaveData {
-  int32 decoration_index = 1;
-  string decoration_data_path = 2;
-}
-message CrewQuartersSaveData {
-  int32 preferred_room_assignment = 1;
-  repeated CrewQuartersDecorationSaveData decorations = 2;
-  string room_data_path = 3;
-}
-message CrewQuartersGunRackItemSaveData {
-  bytes encrypted_serial_number = 1;
-  string slot_asset_path = 2;
-  InventoryBalanceStateInitializationData development_save_data = 3;
-}
-message CrewQuartersGunRackSaveData {
-  repeated CrewQuartersGunRackItemSaveData rack_save_data = 1;
+message CustomFloatCustomizationSaveGameData {
+  string name = 1;
+  float value = 2;
 }
 message EchoLogSaveGameData {
   bool has_been_seen_in_log = 1;
@@ -189,6 +146,7 @@ message GameStateSaveData {
   MapIDData last_traveled_map_id = 1;
   int32 mayhem_level = 2;
   int32 mayhem_random_seed = 3;
+  int32 mayhem_unlocked_level = 4;
 }
 message ChallengeCategoryProgressSaveData {
   bytes category_progress = 1;
@@ -202,7 +160,6 @@ message OakPlayerCharacterSlotSaveGameData {
 }
 message UITrackingSaveGameData {
   bool has_seen_skill_menu_unlock = 1;
-  bool has_seen_guardian_rank_menu_unlock = 2;
   bool has_seen_echo_boot_ammo_bar = 3;
   bool has_seen_echo_boot_shield_bar = 4;
   bool has_seen_echo_boot_grenades = 5;
@@ -239,33 +196,61 @@ message GbxZoneMapFODSavedLevelData {
 message GbxZoneMapFODSaveGameData {
   repeated GbxZoneMapFODSavedLevelData level_data = 1;
 }
+message HeroPointsSaveData {
+  uint32 strength = 1;
+  uint32 dexterity = 2;
+  uint32 intelligence = 3;
+  uint32 wisdom = 4;
+  uint32 constitution = 5;
+  uint32 luck = 6;
+  string player_aspect_data_path = 7;
+  uint32 respec_count = 8;
+}
+message GuidSaveData {
+  uint32 A = 1;
+  uint32 B = 2;
+  uint32 C = 3;
+  uint32 D = 4;
+}
+message TrackedInteractionSaveData {
+  string tracked_interaction_data = 1;
+  repeated GuidSaveData completed_instances = 2;
+}
+message PlayerVoiceSaveData {
+  string data = 1;
+  float pitch = 2;
+}
+message OakProfileCloudData_PlayerPrestige {
+  bool has_seen_tutorial = 1;
+  int64 prestige_experience = 2;
+  repeated int32 points_spent_by_index_order = 3;
+}
 message OakProfileCloudData {
   repeated GameStatSaveGameData profile_stats_data = 1;
-  repeated bytes bank_inventory_list = 2;
   repeated bytes lost_loot_inventory_list = 3;
   repeated OakMailItem npc_mail_items = 4;
   repeated OakSDUSaveGameData profile_sdu_list = 5;
   repeated OakCustomizationSaveGameData unlocked_customizations = 6;
   repeated OakInventoryCustomizationPartInfo unlocked_inventory_customization_parts = 7;
-  int64 guardian_experience = 8;
-  repeated CrewQuartersDecorationItemSaveGameData unlocked_crew_quarters_decorations = 9;
-  repeated CrewQuartersRoomItemSaveGameData unlocked_crew_quarters_rooms = 10;
   repeated ChallengeSaveGameData challenge_data = 11;
   repeated string mail_guids = 12;
-  repeated int32 CitizenScienceLevelProgression = 13;
-  int32 CitizenScienceCSBucksAmount = 14;
-  VaultCardSaveGameData vault_card = 15;
-  bool bCitizenScienceHasSeenIntroVideo = 25;
-  bool bCitizenScienceTutorialDone = 26;
+  repeated OakInventoryItemSaveGameData bank_inventory_list = 13;
+  uint32 difficulty = 14;
+  OakProfileCloudData_PlayerPrestige player_prestige = 15;
+}
+message DafTownHubTravelData {
+  bool is_set = 1;
+  bool is_active = 2;
+  Vec3 return_travel_location = 3;
+  Vec3 return_travel_rotation = 4;
+  string return_map_name = 5;
+  string return_station_name = 6;
+  string return_travel_station = 7;
 }
 message Character {
   message NicknameMappingsEntry {
     string key = 1;
     string value = 2;
-  }
-  message ActiveLeagueInstanceForEventEntry {
-    uint32 key = 1;
-    uint32 value = 2;
   }
   uint32 save_game_id = 1;
   int64 last_save_timestamp = 2;
@@ -284,9 +269,12 @@ message Character {
   int32 playthroughs_completed = 15;
   bool show_new_playthrough_notification = 16;
   repeated MissionPlaythroughSaveGameData mission_playthroughs_data = 17;
-  repeated string active_travel_stations = 21;
+  repeated string last_active_travel_station_for_playthrough = 18;
+  repeated GameStateSaveData game_state_save_data_for_playthrough = 19;
+  repeated RegisteredDownloadableEntitlements registered_downloadable_entitlements = 20;
+  repeated PlaythroughActiveFastTravelSaveData active_travel_stations_for_playthrough = 21;
   DiscoverySaveData discovery_data = 22;
-  string last_active_travel_station = 23;
+  string save_game_guid = 23;
   repeated VehicleUnlockedSaveGameData vehicles_unlocked_data = 24;
   repeated string vehicle_parts_unlocked = 25;
   repeated OakCARMenuVehicleConfigSaveData vehicle_loadouts = 26;
@@ -296,13 +284,10 @@ message Character {
   repeated string selected_customizations = 30;
   repeated int32 equipped_emote_customizations = 31;
   repeated CustomPlayerColorSaveGameData selected_color_customizations = 32;
-  GuardianRankSaveGameData guardian_rank = 33;
-  CrewQuartersSaveData crew_quarters_room = 34;
-  CrewQuartersGunRackSaveData crew_quarters_gun_rack = 35;
+  GbxZoneMapFODSaveGameData gbx_zone_map_fod_save_game_data = 33;
   repeated EchoLogSaveGameData unlocked_echo_logs = 36;
-  bool has_played_special_echo_log_insert_already = 37;
   repeated NicknameMappingsEntry nickname_mappings = 38;
-  MapIDData last_traveled_map_id = 39;
+  uint32 accumulated_level_persistence_reset_timer_seconds = 39;
   ChallengeCategoryProgressSaveData challenge_category_completion_pcts = 40;
   OakPlayerCharacterSlotSaveGameData character_slot_save_game_data = 41;
   UITrackingSaveGameData ui_tracking_save_game_data = 42;
@@ -311,21 +296,15 @@ message Character {
   uint32 preferred_group_mode = 45;
   TimeOfDaySaveGameData time_of_day_save_game_data = 46;
   repeated LevelPersistence_Level_SaveGameData level_persistence_data = 47;
-  uint32 accumulated_level_persistence_reset_timer_seconds = 48;
-  uint32 mayhem_level = 49;
-  GbxZoneMapFODSaveGameData gbx_zone_map_fod_save_game_data = 50;
-  repeated ActiveFastTravelSaveData active_or_blacklisted_travel_stations = 51;
-  repeated string last_active_travel_station_for_playthrough = 52;
-  repeated GameStateSaveData game_state_save_data_for_playthrough = 53;
-  repeated RegisteredDownloadableEntitlements registered_downloadable_entitlements = 54;
-  repeated PlaythroughActiveFastTravelSaveData active_travel_stations_for_playthrough = 55;
-  string save_game_guid = 56;
-  GuardianRankCharacterSaveGameData guardian_rank_character_data = 57;
-  bool optional_objective_reward_fixup_applied = 58;
-  bool vehicle_part_rewards_fixup_applied = 59;
-  uint32 last_active_league = 60;
-  uint32 last_active_league_instance = 61;
-  repeated ActiveLeagueInstanceForEventEntry active_league_instance_for_event = 62;
-  bool levelled_save_vehicle_part_rewards_fixup_applied = 63;
+  repeated CustomFloatCustomizationSaveGameData custom_float_customizations = 49;
+  HeroPointsSaveData hero_points_save_data = 50;
+  repeated TrackedInteractionSaveData tracked_interactions = 51;
+  string player_pronoun_selection = 52;
+  PlayerVoiceSaveData player_voice = 53;
+  repeated string last_overworld_travel_station_for_playthrough = 54;
+  bool disable_customization_suppression = 55;
+  repeated OakProfileCustomizationLinkData customization_link_data = 56;
   OakProfileCloudData profile_cloud_data = 64;
+  DafTownHubTravelData townhub_travel_info = 65;
+  uint32 difficulty = 66;
 }

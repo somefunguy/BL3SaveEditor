@@ -17,6 +17,12 @@ namespace BL3Tools {
         /// A <b>decrypted</b> PS4 save.
         /// </summary>
         [Description("PS4")]
-        PS4 = 0x02
+        PS4 = 0x02,
+
+        /// <summary>
+        /// A <b>decrypted</b> Save Wizard's PS4 save.
+        /// </summary>
+        [Description("JSON")]
+        JSON = 0x03
     }
 }

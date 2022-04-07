@@ -1,22 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
-namespace BL3SaveEditor.Controls {
+﻿namespace TTWSaveEditor.Controls
+{
     /// <summary>
     /// Interaction logic for IntegerMessageBox.xaml
     /// </summary>
-    public partial class IntegerMessageBox {
+    public partial class IntegerMessageBox
+    {
 
         /// <summary>
         /// Minimum value for the integer message box
@@ -48,7 +36,8 @@ namespace BL3SaveEditor.Controls {
         /// </summary>
         public string Label { get; private set; } = "";
 
-        public IntegerMessageBox(string message, string label, int minimum = int.MinValue, int maximum = int.MaxValue, int defaultValue = 0) {
+        public IntegerMessageBox(string message, string label, int minimum = int.MinValue, int maximum = int.MaxValue, int defaultValue = 0)
+        {
             InitializeComponent();
 
             this.Message = message;
@@ -61,12 +50,14 @@ namespace BL3SaveEditor.Controls {
             this.DataContext = this;
         }
 
-        private void OkBtn_Click(object sender, System.Windows.RoutedEventArgs e) {
+        private void OkBtn_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
             this.Succeeded = true;
             this.Close();
         }
 
-        private void ExitBtn_Click(object sender, System.Windows.RoutedEventArgs e) {
+        private void ExitBtn_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
             this.Succeeded = false;
             this.Close();
         }

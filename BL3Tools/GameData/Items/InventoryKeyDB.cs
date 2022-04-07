@@ -50,19 +50,23 @@ namespace BL3Tools.GameData.Items {
                 var invKeys = KeyDictionary.Values.Distinct();
 
                 ItemTypeToKey = new Dictionary<string, List<string>>() {
-                    { "Grenades", invKeys.Where(x => x.Contains("_GrenadeMod_")).ToList() },
+                    { "Amulets", invKeys.Where(x => x.Contains("_Amulet_")).ToList() },
+                    { "Axes", invKeys.Where(x => x.Contains("_Melee_Axe_")).ToList() },
+                    { "Blunts", invKeys.Where(x => x.Contains("_Melee_Blunt_")).ToList() },
+                    { "Sword 1-Handed", invKeys.Where(x => x.Contains("_Melee_Sword_")).ToList() },
+                    { "Sword 2-Handed", invKeys.Where(x => x.Contains("_Melee_Sword_2H_")).ToList() },
+                    { "Pauldrons", invKeys.Where(x => x.Contains("_Pauldron_")).ToList() },
+                    { "Rings", invKeys.Where(x => x.Contains("_Ring_")).ToList() },
+                    { "Spells", invKeys.Where(x => x.Contains("_SpellMod_")).ToList() },
                     { "Shields", invKeys.Where(x => x.Contains("_Shield_")).ToList() },
-                    { "Class Mods", invKeys.Where(x => x.Contains("_ClassMod_")).ToList() },
-                    { "Artifacts", invKeys.Where(x => x.Contains("_Artifact_")).ToList() },
                     { "Assault Rifles", invKeys.Where(x => x.Contains("_AR_")).ToList() },
                     { "Pistols", invKeys.Where(x => x.Contains("_Pistol_") || x.Contains("_PS_")).ToList() },
                     { "SMGs", invKeys.Where(x => x.Contains("_SM_") || x.Contains("_SMG")).ToList() },
                     { "Heavy Weapons", invKeys.Where(x => x.Contains("_HW_")).ToList() },
                     { "Shotguns", invKeys.Where(x => x.Contains("_SG_") || x.Contains("_Shotgun_")).ToList() },
                     { "Sniper Rifles", invKeys.Where(x => x.Contains("_SR_")).ToList() },
-                    { "Eridian Fabricator", invKeys.Where(x => x.Contains("EridianFabricator")).ToList() },
-                    { "Customizations", invKeys.Where(x => x.Contains("Customization")).ToList() }
-                };
+                    { "Customizations", invKeys.Where(x => x.Contains("Customization")).ToList() },
+                }.OrderBy(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
 
                 return true;
             }

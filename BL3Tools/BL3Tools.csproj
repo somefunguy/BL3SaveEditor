@@ -28,7 +28,7 @@
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -107,6 +107,7 @@
     <Compile Include="GameData\Items\InventoryNameDatabase.cs" />
     <Compile Include="GameData\Items\InventorySerialDatabase.cs" />
     <Compile Include="GameData\Items\Borderlands3Serial.cs" />
+    <Compile Include="GameData\Items\WonderlandsSerial.cs" />
     <Compile Include="GameData\SDU.cs" />
     <Compile Include="GVAS\GVASSave.cs" />
     <Compile Include="Helpers\Helpers.cs" />
@@ -121,7 +122,6 @@
       <Link>.editorconfig</Link>
     </None>
     <None Include="FixProtobufs.ps1" />
-    <EmbeddedResource Include="GameData\Items\SerialDB\Inventory Serial Number Database.json" />
     <EmbeddedResource Include="GameData\Items\Mappings\balance_to_inv_key.json" />
     <EmbeddedResource Include="GameData\Items\Mappings\part_name_mapping.json" />
     <EmbeddedResource Include="GameData\Items\Mappings\prefix_name_mapping.json" />
@@ -129,13 +129,12 @@
     <None Include="GameData\Items\Mappings\README.md" />
     <EmbeddedResource Include="GameData\Items\Mappings\valid_part_database.json" />
     <EmbeddedResource Include="GameData\Items\Mappings\valid_generics.json" />
-    <None Include="GameData\Items\SerialDB\README.md" />
     <EmbeddedResource Include="GameData\Mappings\fast_travel_to_name.json" />
+    <EmbeddedResource Include="GameData\Items\SerialDB\Inventory Serial Number Database.json" />
     <None Include="packages.config" />
-    <AdditionalFiles Include="Protobufs\OakShared.proto" />
-    <AdditionalFiles Include="Protobufs\OakProfile.proto" />
-    <AdditionalFiles Include="Protobufs\OakSave.proto" />
+    <None Include="Protobufs\OakProfile.proto" />
     <None Include="Protobufs\OakSave.proto" />
+    <None Include="Protobufs\OakShared.proto" />
     <None Include="Scripts\README.md" />
     <Protobuf Include="Protobufs/OakShared.proto" Link="OakShared.proto" />
     <Protobuf Include="Protobufs/OakProfile.proto" Link="OakProfile.proto" />

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30330.147
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL3SaveEditor", "BL3SaveEditor\BL3SaveEditor.csproj", "{A363B5AB-89B8-40F7-85A9-6A7341E183EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTWSaveEditor", "BL3SaveEditor\TTWSaveEditor.csproj", "{A363B5AB-89B8-40F7-85A9-6A7341E183EF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL3Tools", "BL3Tools\BL3Tools.csproj", "{EEFEAB45-B558-4D33-9C74-D68660E26921}"
 EndProject

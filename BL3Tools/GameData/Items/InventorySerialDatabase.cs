@@ -59,6 +59,11 @@ namespace BL3Tools.GameData.Items {
         /// </summary>
         public static Dictionary<string, List<string>> GenericsDatabase { get; private set; } = null;
 
+        /// <summary>
+        /// A list containing all of the valid customozatiosn.
+        /// </summary>
+        public static List<string> OakCustomizationData { get; private set; } = null;
+
         private static readonly string embeddedDatabasePath = "BL3Tools.GameData.Items.SerialDB.Inventory Serial Number Database.json";
         private static readonly string embeddedInvDataDBPath = "BL3Tools.GameData.Items.Mappings.balance_to_inv_data.json";
         private static readonly string embeddedPartDBPath = "BL3Tools.GameData.Items.Mappings.valid_part_database.json";
@@ -338,6 +343,7 @@ namespace BL3Tools.GameData.Items {
 
                 InventoryDatas = ((JArray)InventoryDatabase["InventoryData"]["assets"]).Children().Select(x => x.Value<string>()).ToList();
                 Manufacturers = ((JArray)InventoryDatabase["ManufacturerData"]["assets"]).Children().Select(x => x.Value<string>()).ToList();
+                OakCustomizationData = ((JArray)InventoryDatabase["OakCustomizationData"]["assets"]).Children().Select(x => x.Value<string>()).ToList();
 
                 return true;
             }

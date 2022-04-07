@@ -1,26 +1,29 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Data;
 using BL3Tools.GameData.Items;
 
-namespace BL3SaveEditor.Controls {
-
-
+namespace TTWSaveEditor.Controls
+{
     /// <summary>
     /// A simple UI which allows the user to change an item balance based off of the type / balance
     /// </summary>
-    public partial class ItemBalanceChanger {
+    public partial class ItemBalanceChanger
+    {
 
-        public ListCollectionView ItemTypes {
-            get {
+        public ListCollectionView ItemTypes
+        {
+            get
+            {
                 var value = InventoryKeyDB.ItemTypeToKey.Keys.ToList();
                 return new ListCollectionView(value);
             }
         }
 
-        public ListCollectionView Balances {
-            get {
+        public ListCollectionView Balances
+        {
+            get
+            {
                 if (SelectedItemType == null || !InventoryKeyDB.ItemTypeToKey.ContainsKey(SelectedItemType)) return null;
                 var itemKeys = InventoryKeyDB.ItemTypeToKey[SelectedItemType];
                 var longNames = InventoryKeyDB.KeyDictionary.Where(x => itemKeys.Contains(x.Value)).Select(x => x.Key).ToList();
@@ -31,11 +34,14 @@ namespace BL3SaveEditor.Controls {
         }
 
         private string _SelectedItemType = null;
-        public string SelectedItemType {
-            get { 
-                return _SelectedItemType; 
+        public string SelectedItemType
+        {
+            get
+            {
+                return _SelectedItemType;
             }
-            set {
+            set
+            {
                 _SelectedItemType = value;
                 if (!IsStarted) return;
 
@@ -46,16 +52,18 @@ namespace BL3SaveEditor.Controls {
 
         public string SelectedBalance { get; set; }
         public string SelectedInventoryData { get; private set; }
-        
+
         public bool IsStarted = false;
 
-        public ItemBalanceChanger() {
+        public ItemBalanceChanger()
+        {
             InitializeComponent();
 
             IsStarted = true;
         }
 
-        public ItemBalanceChanger(string itemType, string balance) {
+        public ItemBalanceChanger(string itemType, string balance)
+        {
             InitializeComponent();
 
             this.SelectedItemType = itemType;
@@ -67,25 +75,29 @@ namespace BL3SaveEditor.Controls {
             this.IsStarted = true;
         }
 
-        private void ExitBtn_Click(object sender, System.Windows.RoutedEventArgs e) {
+        private void ExitBtn_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
             SelectedItemType = null;
             SelectedBalance = null;
             SelectedInventoryData = null;
             this.Close();
         }
 
-        private void SaveBtn_Click(object sender, System.Windows.RoutedEventArgs e) {
+        private void SaveBtn_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
             string longName = InventorySerialDatabase.GetBalanceFromShortName(SelectedBalance);
             SelectedInventoryData = InventorySerialDatabase.GetInventoryDataByBalance(longName);
 
             this.Close();
         }
 
-        private void BalanceBox_Selected(object sender, SelectionChangedEventArgs e) {
+        private void BalanceBox_Selected(object sender, SelectionChangedEventArgs e)
+        {
             if (!IsStarted) return;
 
             var box = (ComboBox)sender;
-            if (box.SelectedItem == null && Balances != null) {
+            if (box.SelectedItem == null && Balances != null)
+            {
                 box.SelectedIndex = 0;
                 SelectedBalance = Balances.SourceCollection.OfType<string>().FirstOrDefault();
             }
