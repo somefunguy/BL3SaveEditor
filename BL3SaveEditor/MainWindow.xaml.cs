@@ -141,6 +141,44 @@ namespace TTWSaveEditor
                 return vx;
             }
         }
+
+        public string[] ItemTypes = { "Normal", "Choatic", "Volatile", "Primordial", "Ascended" };
+        public ListCollectionView ValidItemTypes
+        {
+            get
+            {
+                if (SelectedSerial == null) return null;
+                var ItemLists = new List<string>();
+                ItemLists.AddRange(ItemTypes);
+
+                return new ListCollectionView(ItemLists);
+            }
+        }
+
+        public int GetItemTypeFromString(string value)
+        {
+            if (value == ItemTypes[0]) return 0;
+            if (value == ItemTypes[1]) return 1;
+            if (value == ItemTypes[2]) return 2;
+            if (value == ItemTypes[3]) return 3;
+            if (value == ItemTypes[4]) return 4;
+            return 0;
+        }
+
+        public string SelectedItemTypes
+        {
+            get
+            {
+                if (SelectedSerial == null) return null;
+                return ItemTypes[SelectedSerial.ItemType];
+            }
+            set
+            {
+                if (SelectedSerial == null) return;
+                SelectedSerial.ItemType = GetItemTypeFromString(value);
+            }
+        }
+
         public ListCollectionView ValidBalances
         {
             get
@@ -907,6 +945,25 @@ namespace TTWSaveEditor
             BackpackListView.ItemsSource = SlotItems;
             BackpackListView.Items.Refresh();
             RefreshBackpackView();
+        }
+
+        private void ChangeItemTypeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var itemKey = InventoryKeyDB.GetKeyForBalance(InventorySerialDatabase.GetBalanceFromShortName(SelectedBalance));
+            var itemType = InventoryKeyDB.ItemTypeToKey.Where(x => x.Value.Contains(itemKey)).Select(x => x.Key).FirstOrDefault();
+
+            Controls.ItemBalanceChanger changer = new Controls.ItemBalanceChanger(itemType, SelectedBalance) { Owner = this };
+
+            changer.ShowDialog();
+
+            // The user actually hit the save button and we have data about the item
+            if (changer.SelectedInventoryData != null)
+            {
+                SelectedInventoryData = changer.SelectedInventoryData;
+                SelectedBalance = changer.SelectedBalance;
+
+                RefreshBackpackView();
+            }
         }
 
 
