@@ -460,7 +460,7 @@
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Top"
                                         IsEnabled="{Binding bSaveLoaded}"
-                                        Maximum="20"
+                                        Maximum="35"
                                         Minimum="0"
                                         ToolTip="The unlocked level of Mayhem of your character."
                                         Value="{Binding saveGame.Character.GameStateSaveDataForPlaythroughs[0].MayhemUnlockedLevel, Mode=TwoWay}" />
@@ -483,7 +483,7 @@
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Top"
                                         IsEnabled="{Binding bSaveLoaded}"
-                                        Maximum="20"
+                                        Maximum="35"
                                         Minimum="0"
                                         ToolTip="The current enabled level of Mayhem of your character."
                                         Value="{Binding saveGame.Character.GameStateSaveDataForPlaythroughs[0].MayhemLevel, Mode=TwoWay}" />
@@ -1149,7 +1149,7 @@
                                 <Label
                                     Width="100"
                                     Height="25"
-                                    Margin="10,10,0,0"
+                                    Margin="10,8,0,0"
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Top"
                                     VerticalContentAlignment="Center"
@@ -1157,7 +1157,7 @@
                                     FontWeight="Normal" />
 
                                 <xctk:IntegerUpDown
-                                    Margin="115,10,10,0"
+                                    Margin="115,8,10,0"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Top"
                                     Maximum="{Binding Path=maximumXP}"
@@ -1461,6 +1461,21 @@
                                         HorizontalContentAlignment="Center"
                                         Content="{Binding Path=SelectedSerial.GenericParts.Count}"
                                         ContentStringFormat="Generic Parts ({0}/15)" />
+                                    <Label
+                                        Width="100"
+                                        Height="27"
+                                        Margin="0,-136,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        VerticalContentAlignment="Center"
+                                        Content="Item Type: "
+                                        FontWeight="Normal" />
+                                    <ComboBox
+                                        Margin="105,-137,20,0"
+                                        VerticalAlignment="Top"
+                                        IsEnabled="{Binding SelectedSerial.InventoryKey, TargetNullValue=False}"
+                                        ItemsSource="{Binding ValidItemTypes}"
+                                        SelectedValue="{Binding SelectedItemTypes, Mode=TwoWay}" />
                                 </Grid>
                             </Grid>
                         </ScrollViewer>
