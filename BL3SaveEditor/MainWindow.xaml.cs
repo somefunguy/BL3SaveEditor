@@ -1010,6 +1010,36 @@ namespace TTWSaveEditor
             obj.GetBindingExpression(ListView.ItemsSourceProperty).UpdateTarget();
             RefreshBackpackView();
         }
+        private void DuplicateItemPartBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var btn = (Button)sender;
+            ListView obj = ((ListView)FindName(btn.Name.Replace("DupBtn", "") + "ListView"));
+
+            string propertyName = obj.Name.Split(new string[] { "ListView" }, StringSplitOptions.RemoveEmptyEntries).FirstOrDefault();
+            if (propertyName == default) return;
+
+            List<string> parts = (List<string>)SelectedSerial.GetType().GetProperty(propertyName).GetValue(SelectedSerial, null);
+
+            if (obj.SelectedIndex != -1)
+            {
+                var longName = parts[obj.SelectedIndex];
+
+                var category = propertyName == "Parts" ? SelectedSerial.InventoryKey : "InventoryGenericPartData";
+
+                var p = InventorySerialDatabase.GetPartFromShortName(category, longName);
+
+                parts.Add(p);
+
+
+                // Update the valid parts
+                ValidParts.Refresh();
+                ValidGenerics.Refresh();
+
+                obj.GetBindingExpression(ListView.ItemsSourceProperty).UpdateTarget();
+                RefreshBackpackView();
+            }
+        }
+
         private void DeleteItemPartBtn_Click(object sender, RoutedEventArgs e)
         {
             var btn = (Button)sender;

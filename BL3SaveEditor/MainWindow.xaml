@@ -1476,6 +1476,17 @@
                                         IsEnabled="{Binding SelectedSerial.InventoryKey, TargetNullValue=False}"
                                         ItemsSource="{Binding ValidItemTypes}"
                                         SelectedValue="{Binding SelectedItemTypes, Mode=TwoWay}" />
+                                    <Button
+                                        x:Name="PartsDupBtn"
+                                        Grid.Column="0"
+                                        Width="75"
+                                        Height="24"
+                                        Margin="0,0,102,10"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Bottom"
+                                        Click="DuplicateItemPartBtn_Click"
+                                        Content="Duplicate"
+                                        IsEnabled="{Binding SelectedSerial.InventoryKey, TargetNullValue=False}" />
                                 </Grid>
                             </Grid>
                         </ScrollViewer>
