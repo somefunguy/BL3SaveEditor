@@ -11,7 +11,7 @@ namespace BL3Tools.GameData.Items
     /// </summary>
     public class WonderlandsSerial
     {
-        public byte SerialVersion { get; set; } = 0x03;
+        public byte SerialVersion { get; set; } = 0x05;
         public uint Seed { get; set; } = 0x00;
         public ushort Checksum { get; set; } = 0x00;
         public int SerialDatabaseVersion { get; set; } = (int)InventorySerialDatabase.MaximumVersion;
