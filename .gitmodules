@@ -3,7 +3,9 @@
 	url = https://github.com/gibbed/Borderlands3Protos
 [submodule "BL3Tools/GameData/Items/SerialDB"]
 	path = BL3Tools/GameData/Items/SerialDB
-	url = https://github.com/gibbed/Borderlands3Dumps
+	# from original bl3 editor
+	# url = https://github.com/gibbed/Borderlands3Dumps
+	url = https://github.com/gibbed/WonderlandsDumps
 [submodule "IOTools"]
 	path = IOTools
 	url = https://github.com/FromDarkHell/IOTools
