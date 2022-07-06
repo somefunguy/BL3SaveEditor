@@ -33,7 +33,7 @@ namespace TTWSaveEditor
     {
 
         #region Databinding Data
-        public static string Version { get; private set; } = "0.1.1a";
+        public static string Version { get; private set; } = "1.1.5.2";
 
         public static RoutedCommand DuplicateCommand { get; } = new RoutedCommand();
         public static RoutedCommand DeleteCommand { get; } = new RoutedCommand();
@@ -130,6 +130,8 @@ namespace TTWSaveEditor
                     else if (serial.InventoryKey.Contains("_Shield")) itemType = "Shields";
                     else if (serial.InventoryKey.Contains("_SpellMod")) itemType = "Spell Mods";
                     else if (serial.InventoryKey.Contains("_Customization")) itemType = "Customizations";
+                    //test InventoryBalanceData to force Customizations category
+                    //else if (serial.InventoryKey.Contains("InventoryBalanceData")) itemType = "Customizations";
                     else if (serial.InventoryKey.Contains("_Pauldron")) itemType = "Pauldrons";
 
                     px.Add(new StringSerialPair(itemType, serial));

@@ -441,7 +441,7 @@
                                     Height="18"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Top"
-                                    Content="Mayhem Level" />
+                                    Content="Chaos Level" />
 
                                 <Grid Margin="0,26,0,0" VerticalAlignment="Top">
                                     <Label
@@ -460,7 +460,7 @@
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Top"
                                         IsEnabled="{Binding bSaveLoaded}"
-                                        Maximum="35"
+                                        Maximum="50"
                                         Minimum="0"
                                         ToolTip="The unlocked level of Mayhem of your character."
                                         Value="{Binding saveGame.Character.GameStateSaveDataForPlaythroughs[0].MayhemUnlockedLevel, Mode=TwoWay}" />
@@ -483,7 +483,7 @@
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Top"
                                         IsEnabled="{Binding bSaveLoaded}"
-                                        Maximum="35"
+                                        Maximum="50"
                                         Minimum="0"
                                         ToolTip="The current enabled level of Mayhem of your character."
                                         Value="{Binding saveGame.Character.GameStateSaveDataForPlaythroughs[0].MayhemLevel, Mode=TwoWay}" />
@@ -2396,6 +2396,22 @@
                                 <LineBreak />
                             </TextBlock>
 
+													  <TextBlock FontSize="13" TextWrapping="Wrap">
+                                <Run FontWeight="Black" Text="Changelog - 1.1.5.2" />
+                                <LineBreak />
+                                <Run Text="        • Added experimental support for cosmetic items." />
+                                <LineBreak />
+                            </TextBlock>
+                            
+                           <TextBlock FontSize="13" TextWrapping="Wrap">
+                                <Run FontWeight="Black" Text="Changelog - 1.1.5.1" />
+                                <LineBreak />
+                                <Run Text="        • Added support for dlc3 items." />
+                                <LineBreak />
+                                <Run Text="        • Increased chaos level max to 50." />
+                                <LineBreak />
+                            </TextBlock>
+                            
                             <TextBlock FontSize="13" TextWrapping="Wrap">
                                 <Run FontWeight="Black" Text="Changelog - 2.5nd Pre-alpha testing" />
                                 <LineBreak />
