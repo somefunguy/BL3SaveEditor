@@ -41,7 +41,10 @@ namespace BL3Tools.GameData.Items
         public string EncryptSerial(uint seed = 0)
         {
             byte[] data = EncryptSerialToBytes(seed);
-            return $"TTW({Convert.ToBase64String(data)})";
+            // return $"TTW({Convert.ToBase64String(data)})";
+            
+            // use new WL() serial
+            return $"WL({Convert.ToBase64String(data)})";
         }
 
         /// <summary>
@@ -101,11 +104,13 @@ namespace BL3Tools.GameData.Items
             writer.WriteInt32(0, 4);
 
             // For consideration is just removing this check here for code compatability.
-            if (SerialVersion >= 4) writer.WriteInt32(AmountRerolled, 8);
-
+            //if (SerialVersion >= 4) writer.WriteInt32(AmountRerolled, 8);
+						if (SerialVersion >= 4) writer.WriteInt32(0, 8);
+						
             // Here we're writing the item type (choatic, volatile...).
-            writer.WriteInt32(ItemType, 3);
-
+            //writer.WriteInt32(ItemType, 3);
+						if (SerialVersion >= 5) writer.WriteInt32(ItemType, 7);
+						
             byte[] buffer = writer.GetBuffer();
 
             // Calculate
@@ -136,6 +141,9 @@ namespace BL3Tools.GameData.Items
         {
             if (serial.ToLower().StartsWith("ttw(") && serial.EndsWith(")"))
                 serial = serial.Remove(0, 4).Remove(serial.Length - 5);
+            // introduce checking for WL() serial
+            if (serial.ToLower().StartsWith("wl(") && serial.EndsWith(")"))
+                serial = serial.Remove(0, 3).Remove(serial.Length - 4);
             return DecryptSerial(Convert.FromBase64String(serial));
         }
 
@@ -249,11 +257,10 @@ namespace BL3Tools.GameData.Items
             }
 
             // Here we're fetching if the item is chaotic, volatile or
-            // something like that.
+            // something like that. bits determined to be at least 7
             int itemType = 0;
-
-            if (reader.BitsRemaining() > 3)
-                itemType = reader.ReadInt32(3);
+            if (reader.BitsRemaining() >= 7)
+                itemType = reader.ReadInt32(7);
 
             // Customizations don't have parts so we do this;
             // For note, you can also use InventoryNameDatabase.GetCustomizationNameForBalance but in this case it will give a faster result if we do this.
