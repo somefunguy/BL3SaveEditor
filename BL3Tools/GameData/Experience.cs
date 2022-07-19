@@ -9,7 +9,7 @@ namespace BL3Tools.GameData {
     public static class PlayerXP {
 
         // PlayerExperienceFormula={Multiplier: 60.0, Power: 2.799999952316284, Offset: 7.329999923706055}
-        private const float expMultiplier = 60.0f;
+        private const float expMultiplier = 65.0f;
         private const float expPower = 2.799999952316284f;
         //private const float expOffset = 7.329999923706055f;
         private const float expOffset = 0f;
