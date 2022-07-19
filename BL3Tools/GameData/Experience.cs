@@ -9,11 +9,13 @@ namespace BL3Tools.GameData {
     public static class PlayerXP {
 
         // PlayerExperienceFormula={Multiplier: 60.0, Power: 2.799999952316284, Offset: 7.329999923706055}
-        private const float expMultiplier = 60.0f;
+        private const float expMultiplier = 65.0f;
         private const float expPower = 2.799999952316284f;
-        private const float expOffset = 7.329999923706055f;
+        //private const float expOffset = 7.329999923706055f;
+        private const float expOffset = 0f;
+        private const float mythOffset = 7.329999923706055f;
 
-        public static int _XPMaximumLevel { get; } = 72;
+        public static int _XPMaximumLevel { get; } = 40;
         public static int _XPMinimumLevel { get; } = 1;
         private static readonly int _XPReduction = 0;
 
@@ -55,6 +57,11 @@ namespace BL3Tools.GameData {
 
             // Get the closest level to the point amounts (price is right rules)
             return xpLevelTable.First(lv => points < lv.Value).Key - 1;
+        }
+
+        public static long GetPointsForMythPoints(int points)
+        {
+            return (long)Math.Floor((Math.Pow(points, expPower) + mythOffset) * expMultiplier);
         }
     }
 
