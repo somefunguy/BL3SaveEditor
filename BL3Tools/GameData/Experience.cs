@@ -9,7 +9,7 @@ namespace BL3Tools.GameData {
     public static class PlayerXP {
 
         // PlayerExperienceFormula={Multiplier: 65.0, Power: 2.7999999523162841796875, Offset: 7.3299999237060546875}
-        // PlayerGuardianRankExperienceFormula={BaseValue: 40.0, BaseMultiplier: 1.0, Multiplier: 60.0, Power: 2.799999952316284, Offset: 12.3299999237060546875}
+        // PlayerGuardianRankExperienceFormula={BaseValue: 40.0, BaseMultiplier: 1.0, Multiplier: 60.0, Power: 2.2999999523162841796875, Offset: 12.3299999237060546875}
         private const float expMultiplier = 65.0f;
         private const float expPower = 2.7999999523162841796875f;
         private const float expOffset = 7.3299999237060546875f;
@@ -68,9 +68,9 @@ namespace BL3Tools.GameData {
             points-=1;
             points+=(int)mythBaseValue;
             
-            return (long)Math.Floor((Math.Pow(points, expPower) + mythOffset) * mythMultiplier) -
-                   (long)Math.Floor((Math.Pow(mythBaseValue, expPower) + mythOffset) * mythMultiplier) +
-                   (long)Math.Floor((Math.Pow(points, expPower) + mythOffset) * mythMultiplier);
+            return (long)Math.Floor((Math.Pow(points, mythPower) + mythOffset) * mythMultiplier) -
+                   (long)Math.Floor((Math.Pow(mythBaseValue, mythPower) + mythOffset) * mythMultiplier) +
+                   (long)Math.Floor((Math.Pow(points, mythPower) + mythOffset) * mythMultiplier);
         }
     }
 
