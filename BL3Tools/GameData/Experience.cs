@@ -70,7 +70,7 @@ namespace BL3Tools.GameData {
             
             return (long)Math.Floor((Math.Pow(points, mythPower) + mythOffset) * mythMultiplier) -
                    (long)Math.Floor((Math.Pow(mythBaseValue, mythPower) + mythOffset) * mythMultiplier) +
-                   (long)Math.Floor((Math.Pow(points, mythPower) + mythOffset) * mythMultiplier);
+                   (long)Math.Floor((Math.Pow(points, mythPower) + mythOffset) * mythBaseMultiplier);
         }
     }
 
