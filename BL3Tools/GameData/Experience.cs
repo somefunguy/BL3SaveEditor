@@ -66,10 +66,9 @@ namespace BL3Tools.GameData {
         public static long GetPointsForMythPoints(int points)
         {
             points+=(int)mythBaseValue;
-            mythBaseValue+=1;
             
             return (long)Math.Ceiling((Math.Pow(points, mythPower) * mythMultiplier) - mythMultiplier) -
-                   (long)Math.Ceiling((Math.Pow(mythBaseValue, mythPower) * mythMultiplier) - mythMultiplier);
+                   (long)Math.Ceiling((Math.Pow(mythBaseValue+1, mythPower) * mythMultiplier) - mythMultiplier);
         }
     }
 
