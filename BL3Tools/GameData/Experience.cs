@@ -26,7 +26,7 @@ namespace BL3Tools.GameData {
         private static Dictionary<int, int> xpLevelTable = new Dictionary<int, int>();
 
         private static int ComputeEXPLevel(int level) {
-            return (int)Math.Floor((Math.Pow(level, expPower) + expOffset) * expMultiplier);
+            return (int)Math.Ceiling((Math.Pow(level, expPower) * expMultiplier) - expMultiplier);
         }
 
         static PlayerXP() {
@@ -65,12 +65,11 @@ namespace BL3Tools.GameData {
 
         public static long GetPointsForMythPoints(int points)
         {
-            points-=1;
             points+=(int)mythBaseValue;
+            mythBaseValue+=1;
             
-            return (long)Math.Floor((Math.Pow(points, mythPower) + mythOffset) * mythMultiplier) -
-                   (long)Math.Floor((Math.Pow(mythBaseValue, mythPower) + mythOffset) * mythMultiplier) +
-                   (long)Math.Floor((Math.Pow(points, mythPower) + mythOffset) * mythBaseMultiplier);
+            return (long)Math.Ceiling((Math.Pow(points, mythPower) * mythMultiplier) - mythMultiplier) -
+                   (long)Math.Ceiling((Math.Pow(mythBaseValue, mythPower) * mythMultiplier) - mythMultiplier);
         }
     }
 
