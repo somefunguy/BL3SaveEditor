@@ -33,7 +33,7 @@ namespace TTWSaveEditor
     {
 
         #region Databinding Data
-        public static string Version { get; private set; } = "1.1.5.3";
+        public static string Version { get; private set; } = "1.1.5.4";
 
         public static RoutedCommand DuplicateCommand { get; } = new RoutedCommand();
         public static RoutedCommand DeleteCommand { get; } = new RoutedCommand();
@@ -313,7 +313,7 @@ namespace TTWSaveEditor
         public int MaximumLostLootSDUs { get { return SDU.MaximumLostLoot; } }
         #endregion
 
-        private static string UpdateURL = "https://raw.githubusercontent.com/jokarwent/BL3SaveEditor/main/BL3SaveEditor/AutoUpdater.xml";
+        private static string UpdateURL = "";
 
         private static Debug.DebugConsole dbgConsole;
         private bool bLaunched = false;
@@ -574,6 +574,10 @@ namespace TTWSaveEditor
         {
             Guid newGUID = Guid.NewGuid();
             GUIDTextBox.Text = newGUID.ToString().Replace("-", "").ToUpper();
+            // super kludge to get SaveGameGuid to update
+            // fixes the GUID not saving problem
+            GUIDTextBox.Focus();
+            RandomizeGUIDBtn.Focus();
         }
 
         private void AdjustSaveLevelsBtn_Click(object sender, RoutedEventArgs e)
@@ -1277,7 +1281,7 @@ namespace TTWSaveEditor
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            AutoUpdater.Start(UpdateURL);
+            //AutoUpdater.Start(UpdateURL);
         }
     }
 }
