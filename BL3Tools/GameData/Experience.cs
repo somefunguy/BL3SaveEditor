@@ -10,10 +10,13 @@ namespace BL3Tools.GameData {
 
         // PlayerExperienceFormula={Multiplier: 65.0, Power: 2.7999999523162841796875, Offset: 7.3299999237060546875}
         // PlayerGuardianRankExperienceFormula={BaseValue: 40.0, BaseMultiplier: 1.0, Multiplier: 60.0, Power: 2.2999999523162841796875, Offset: 12.3299999237060546875}
+        // expBaseValueXP is calculated from (65*(0+1)^2.3) mythBaseValueXP is calculated from (60*(40+1)^2.3)
         private const float expMultiplier = 65.0f;
+        private const float expBaseValueXP = 65.0f;
         private const float expPower = 2.7999999523162841796875f;
         private const float expOffset = 7.3299999237060546875f;
         private const float mythBaseValue = 40.0f;
+        private const float mythBaseValueXP = 307294.028457972f;
         private const float mythBaseMultiplier = 1.0f;
         private const float mythMultiplier = 60.0f;
         private const float mythPower = 2.2999999523162841796875f;
@@ -26,7 +29,7 @@ namespace BL3Tools.GameData {
         private static Dictionary<int, int> xpLevelTable = new Dictionary<int, int>();
 
         private static int ComputeEXPLevel(int level) {
-            return (int)Math.Ceiling((Math.Pow(level, expPower) * expMultiplier) - expMultiplier);
+            return (int)Math.Ceiling((Math.Pow(level, expPower) * expMultiplier) - expBaseValueXP);
         }
 
         static PlayerXP() {
@@ -65,10 +68,7 @@ namespace BL3Tools.GameData {
 
         public static long GetPointsForMythPoints(int points)
         {
-            points+=(int)mythBaseValue;
-            
-            return (long)Math.Ceiling((Math.Pow(points, mythPower) * mythMultiplier) - mythMultiplier) -
-                   (long)Math.Ceiling((Math.Pow(mythBaseValue+1, mythPower) * mythMultiplier) - mythMultiplier);
+            return (long)Math.Ceiling((Math.Pow(points, mythPower) * mythMultiplier) - mythBaseValueXP);
         }
     }
 
