@@ -102,12 +102,14 @@ namespace BL3Tools
 
         public static Dictionary<string, string> ValidAbilityBranches = new Dictionary<string, string>() {
             { "None", "" },
+            /// { "Blightcaller", "/Game/PlayerCharacters/Shaman/_Shared/_Design/SkillTree/AbilityTree_Branch_Shaman.AbilityTree_Branch_Shaman" },
+            { "Blightcaller", "/Game/PatchDLC/Indigo4/PlayerCharacters/Shaman/_Shared/_Design/SkillTree/AbilityTree_Branch_Shaman.AbilityTree_Branch_Shaman" },
             { "Brr-zerker", "/Game/PlayerCharacters/Barbarian/_Shared/_Design/SkillTree/AbilityTree_Branch_Barbarian.AbilityTree_Branch_Barbarian" },
             { "Spellshot", "/Game/PlayerCharacters/GunMage/_Shared/_Design/SkillTree/AbilityTree_Branch_GunMage.AbilityTree_Branch_GunMage" },
             { "Clawbringer", "/Game/PlayerCharacters/KnightOfTheClaw/_Shared/_Design/SkillTree/AbilityTree_Branch_DragonCleric.AbilityTree_Branch_DragonCleric" },
             { "Graveborn", "/Game/PlayerCharacters/Necromancer/_Shared/_Design/SkillTree/AbilityTree_Branch_Necromancer.AbilityTree_Branch_Necromancer" },
             { "Spore Warden", "/Game/PlayerCharacters/Ranger/_Shared/_Design/SkillTree/AbilityTree_Branch_Ranger.AbilityTree_Branch_Ranger" },
-            { "Stabbomancer", "/Game/PlayerCharacters/Rogue/_Shared/_Design/SkillTree/AbilityTree_Branch_Rogue.AbilityTree_Branch_Rogue" },
+            { "Stabbomancer", "/Game/PlayerCharacters/Rogue/_Shared/_Design/SkillTree/AbilityTree_Branch_Rogue.AbilityTree_Branch_Rogue" }
         };
 
         public static Dictionary<string, string> CharacterToClassPair = new Dictionary<string, string>() {
@@ -123,7 +125,11 @@ namespace BL3Tools
             { "Raised By Elves", "/Game/PlayerCharacters/_Shared/_Design/Aspects/Aspect_02.Aspect_02" },
             { "Failed Monk", "/Game/PlayerCharacters/_Shared/_Design/Aspects/Aspect_03.Aspect_03" },
             { "Recovering Inventory Hoarder", "/Game/PlayerCharacters/_Shared/_Design/Aspects/Aspect_04.Aspect_04" },
-            { "Rogue Alchemist", "/Game/PlayerCharacters/_Shared/_Design/Aspects/Aspect_05.Aspect_05" }
+            { "Rogue Alchemist", "/Game/PlayerCharacters/_Shared/_Design/Aspects/Aspect_05.Aspect_05" },
+            { "Nerfed By The Bunker Master", "/Game/PatchDLC/Indigo4/PlayerCharacters/_Shared/_Design/Aspects/Aspect_PLC_1.Aspect_PLC_1" },
+            { "Clownblood", "/Game/PatchDLC/Indigo4/PlayerCharacters/_Shared/_Design/Aspects/Aspect_PLC_2.Aspect_PLC_2" },
+            { "Apprentice Barnacle Scraper", "/Game/PatchDLC/Indigo4/PlayerCharacters/_Shared/_Design/Aspects/Aspect_PLC_3.Aspect_PLC_3" },
+            { "Street Urchin Success Story", "/Game/PatchDLC/Indigo4/PlayerCharacters/_Shared/_Design/Aspects/Aspect_PLC_4.Aspect_PLC_4" }
         };
 
         public static Dictionary<string, string> ValidPlayerPronouns = new Dictionary<string, string>() {
