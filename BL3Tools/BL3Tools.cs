@@ -80,12 +80,56 @@ namespace BL3Tools
 
                                 saveData[x] = saveData[x].Replace(match.Value, $" \"{String.Join("", values)}");
                             }
-
+                            
                             if (saveData[x].Contains("NicknameMappings"))
                             {
-                                saveData[x] = "\"NicknameMappings\": [],";
-                            }
+                                // change Save Wizard format from {petNickname: value} to
+                                // [{ key: petNickname, value: name}],
 
+                                x++;
+
+                                if (saveData[x].Contains(":"))
+                                {
+                                    // JSON format matches Save Wizard output
+                                    x--;
+
+                                    saveData[x] = "\"NicknameMappings\": [{";
+
+                                    x++;
+
+                                    var nickTemp = saveData[x].Split(':');
+
+                                    var nickKey = nickTemp[0];
+                                    var nickValue = nickTemp[1];
+
+                                    if (nickKey.Contains("petNicknameLich") ||
+                                        nickKey.Contains("petNicknameMushroom") ||
+                                        nickKey.Contains("petNicknameWyvern"))
+                                    {
+                                        saveData[x] = " \"key\": " + nickKey + ",";
+
+                                        x++;
+
+                                        saveData[x] = " \"value\": " + nickValue + "}],";
+                                    }
+                                    else
+                                    {
+                                        saveData[x] = " \"key\": \"\",";
+
+                                        x++;
+
+                                        saveData[x] = " \"value\": \"\"}],";
+                                    }
+                                }
+                                else
+                                {
+                                    // JSON format does not match Save Wizard output
+                                    // restore line counter for JSON string[] and
+                                    // continue without making import adjustments
+                                    x--;
+                                }
+                            }
+                            
                             if (saveData[x].Contains("GameStatsData"))
                             {
                                 saveData[x] = saveData[x].Replace("GameStatsData", "GameStatsDatas");
@@ -387,7 +431,48 @@ namespace BL3Tools
 
                                     if (saveData[x].Contains("nickname_mapping"))
                                     {
-                                        saveData[x] = " \"nickname_mapping\": {},";
+                                        // really bad fix for json nicknames writer, but it seems to work
+                                        // saved here only for reference in case it's needed.
+                                        
+                                        /*
+                                        saveData[x] = " \"nickname_mappings\": {";
+
+                                        x++;
+
+                                        saveData[x] = "";
+
+                                        x++;
+
+                                        var nickKeyTemp = saveData[x].Split(':');
+                                        string nickKeySave = nickKeyTemp[1];
+                                        nickKeySave = nickKeySave.Substring(0, nickKeySave.Length - 2);
+
+                                        x++;
+
+                                        var nickValueTemp = saveData[x].Split(':');
+                                        string nickValueSave = nickValueTemp[1];
+                                        nickValueSave = nickValueSave.Substring(0, nickValueSave.Length - 1);
+
+                                        x -= 2;
+
+                                        saveData[x] = nickKeySave + ": " + nickValueSave;
+
+                                        x++;
+
+                                        saveData[x] = "},";
+
+                                        x++;
+
+                                        saveData[x] = "";
+
+                                        x++;
+
+                                        saveData[x] = "";
+
+                                        x++;
+
+                                        saveData[x] = "";
+                                        */
                                     }
 
                                     if (saveData[x].Contains("game_stats_datas"))
