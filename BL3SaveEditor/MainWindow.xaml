@@ -2397,18 +2397,9 @@
                             </TextBlock>
 
 													  <TextBlock FontSize="13" TextWrapping="Wrap">
-                                <Run FontWeight="Black" Text="Changelog - 1.1.5.2" />
+                                <Run FontWeight="Black" Text="Changelog - 1.1.5.6" />
                                 <LineBreak />
-                                <Run Text="        • Added experimental support for cosmetic items." />
-                                <LineBreak />
-                            </TextBlock>
-                            
-                           <TextBlock FontSize="13" TextWrapping="Wrap">
-                                <Run FontWeight="Black" Text="Changelog - 1.1.5.1" />
-                                <LineBreak />
-                                <Run Text="        • Added support for dlc3 items." />
-                                <LineBreak />
-                                <Run Text="        • Increased chaos level max to 50." />
+                                <Run Text="        • Added experimental support for Save Wizard saves with custom companion names." />
                                 <LineBreak />
                             </TextBlock>
                             
