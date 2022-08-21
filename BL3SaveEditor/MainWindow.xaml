@@ -296,8 +296,8 @@
                             <RowDefinition />
                         </Grid.RowDefinitions>
 
-                        <GroupBox VerticalAlignment="Top">
-                            <Grid>
+                        <GroupBox VerticalAlignment="Top" Height="124" Grid.RowSpan="2">
+                            <Grid Height="113">
                                 <Label
                                     Height="18"
                                     HorizontalAlignment="Stretch"
@@ -345,10 +345,27 @@
                                         SelectedValue="{Binding saveGame.Character.PlayerPronounSelection, Mode=TwoWay, Converter={StaticResource PlayerPronounDataConverter1}}"
                                         ToolTip="The pronoun of your character" />
                                 </Grid>
+                                <Label
+                                    Width="140"
+                                    Height="24"
+                                    Margin="0,83,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    HorizontalContentAlignment="Left"
+                                    VerticalContentAlignment="Center"
+                                    Content="Companion Name"
+                                    FontWeight="Normal" />
+                                <TextBox
+                                    Margin="140,83,0,0"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Top"
+                                    IsEnabled="{Binding bSaveLoaded}"
+                                    Text="{Binding saveGame.Character.NicknameMappings[0].Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    TextWrapping="WrapWithOverflow" />
                             </Grid>
                         </GroupBox>
 
-                        <GroupBox Grid.Row="1" VerticalAlignment="Top">
+                        <GroupBox Grid.Row="1" VerticalAlignment="Top" Height="222" Grid.RowSpan="2" Margin="0,39,0,0">
                             <Grid>
                                 <Label
                                     Height="18"
@@ -435,7 +452,7 @@
                             </Grid>
                         </GroupBox>
 
-                        <GroupBox Grid.Row="2" VerticalAlignment="Top">
+                        <GroupBox Grid.Row="2" VerticalAlignment="Top" Height="102" Margin="0,43,0,0">
                             <Grid>
                                 <Label
                                     Height="18"
@@ -2396,13 +2413,17 @@
                                 <LineBreak />
                             </TextBlock>
 
-													  <TextBlock FontSize="13" TextWrapping="Wrap">
-                                <Run FontWeight="Black" Text="Changelog - 1.1.5.6" />
+                            <TextBlock FontSize="13" TextWrapping="Wrap">
+                                <Run FontWeight="Black" Text="Changelog - 1.1.5.7" />
                                 <LineBreak />
-                                <Run Text="        • Added experimental support for Save Wizard saves with custom companion names." />
+                                <Run Text="        • Further tweak to ouput usable Save Wizard saves with custom companion names." />
+                                <LineBreak />
+                                <Run Text="        • Added companion name field in Character tab." />
+                                <LineBreak />
+                                <Run FontWeight="Black" Text="        (REQUIRES EXISTING COMPANION NAME TO WORK)" />
                                 <LineBreak />
                             </TextBlock>
-                            
+
                             <TextBlock FontSize="13" TextWrapping="Wrap">
                                 <Run FontWeight="Black" Text="Changelog - 2.5nd Pre-alpha testing" />
                                 <LineBreak />
