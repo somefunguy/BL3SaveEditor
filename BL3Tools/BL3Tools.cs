@@ -86,12 +86,9 @@ namespace BL3Tools
                                 // change Save Wizard format from {petNickname: value} to
                                 // [{ key: petNickname, value: name}],
 
-                                x++;
-
-                                if (saveData[x].Contains(":"))
+                                if (!saveData[x].Contains("[]"))
                                 {
                                     // JSON format matches Save Wizard output
-                                    x--;
 
                                     saveData[x] = "\"NicknameMappings\": [{";
 
@@ -121,13 +118,7 @@ namespace BL3Tools
                                         saveData[x] = " \"value\": \"\"}],";
                                     }
                                 }
-                                else
-                                {
-                                    // JSON format does not match Save Wizard output
-                                    // restore line counter for JSON string[] and
-                                    // continue without making import adjustments
-                                    x--;
-                                }
+                                // JSON format does not match Save Wizard output
                             }
                             
                             if (saveData[x].Contains("GameStatsData"))
@@ -433,46 +424,48 @@ namespace BL3Tools
                                     {
                                         // really bad fix for json nicknames writer, but it seems to work
                                         // saved here only for reference in case it's needed.
-                                        
-                                        /*
-                                        saveData[x] = " \"nickname_mappings\": {";
 
-                                        x++;
+                                        if (!saveData[x].Contains("[]"))
+                                        {
+                                            saveData[x] = " \"nickname_mappings\": {";
 
-                                        saveData[x] = "";
+                                            x++;
 
-                                        x++;
+                                            saveData[x] = "";
 
-                                        var nickKeyTemp = saveData[x].Split(':');
-                                        string nickKeySave = nickKeyTemp[1];
-                                        nickKeySave = nickKeySave.Substring(0, nickKeySave.Length - 2);
+                                            x++;
 
-                                        x++;
+                                            var nickKeyTemp = saveData[x].Split(':');
+                                            string nickKeySave = nickKeyTemp[1];
+                                            nickKeySave = nickKeySave.Substring(0, nickKeySave.Length - 2);
 
-                                        var nickValueTemp = saveData[x].Split(':');
-                                        string nickValueSave = nickValueTemp[1];
-                                        nickValueSave = nickValueSave.Substring(0, nickValueSave.Length - 1);
+                                            x++;
 
-                                        x -= 2;
+                                            var nickValueTemp = saveData[x].Split(':');
+                                            string nickValueSave = nickValueTemp[1];
+                                            nickValueSave = nickValueSave.Substring(0, nickValueSave.Length - 1);
 
-                                        saveData[x] = nickKeySave + ": " + nickValueSave;
+                                            x -= 2;
 
-                                        x++;
+                                            saveData[x] = nickKeySave + ": " + nickValueSave;
 
-                                        saveData[x] = "},";
+                                            x++;
 
-                                        x++;
+                                            saveData[x] = "},";
 
-                                        saveData[x] = "";
+                                            x++;
 
-                                        x++;
+                                            saveData[x] = "";
 
-                                        saveData[x] = "";
+                                            x++;
 
-                                        x++;
+                                            saveData[x] = "";
 
-                                        saveData[x] = "";
-                                        */
+                                            x++;
+
+                                            saveData[x] = "";
+                                        }
+
                                     }
 
                                     if (saveData[x].Contains("game_stats_datas"))
