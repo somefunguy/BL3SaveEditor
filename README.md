@@ -1,20 +1,23 @@
-## Borderlands 3 Save Editor
+## Tiny Tina's Wonderland Save Editor
 
-A desktop based save _and_ profile editor for [Borderlands 3](borderlands.com/).
+A desktop based save _and_ profile editor for [Tiny Tina's Wonderlands](playwonderlands.2k.com/).
 
 ![](https://img.shields.io/tokei/lines/github/FromDarkHell/BL3SaveEditor?style=for-the-badge) ![](https://img.shields.io/github/downloads/FromDarkHell/BL3SaveEditor/total?style=for-the-badge)
 
 ### Installation / Usage
 
-1. Download the exe/zip for your respective OS/setup available on the [Releases](https://github.com/FromDarkHell/BL3SaveEditor/releases) tab.
-   - _Which one do I download?_ If you don't know which one to download, you probably will want to download `BL3SaveEditor-Portable.zip`<sup>[here](https://github.com/FromDarkHell/BL3SaveEditor/releases/latest/download/BL3SaveEditor-Portable.zip)</sup>. This is a self-contained windows binary. If that one doesn't launch for you, try downloading `BL3SaveEditor.zip`<sup>[here](https://github.com/FromDarkHell/BL3SaveEditor/releases/latest/download/BL3SaveEditor.zip)</sup>.
-2. Then you download / run the exe
-3. Click `Open`, then you can select either a profile (`profile.sav`) or a game save (`[NUMBERS].sav`).
-4. You can now edit your profile or game save to your hearts content!
-5. Once you think you're done editing your saves, you can save your file with either the `Save` button (which will overwrite your loaded file), or use the `Save As` button, allowing you to save to a new file. In either case, it will make backups to help keep your saves protected!
+1. Download the [7zip](https://7-zip.org) file on the [Releases](https://github.com/somefunguy/BL3SaveEditor/releases) tab.
+2. Extract the [7zip](https://7-zip.org) file to a folder of your choosing.
+3. Then run TTWSaveEditor.exe
+4. Click `Open`, then you can select either a profile (`profile.sav`) or a game save (`[NUMBERS].sav`).
+5. You can now edit your profile or game save to your hearts content!
+6. Once you think you're done editing your saves, you can save your file with either the `Save` button (which will overwrite your loaded file), or use the `Save As` button, allowing you to save to a new file. In either case, it will make backups to help keep your saves protected!
 
 ### Credits
 
+- [FromDarkHell](https://github.com/fromdarkhell/) for creating the original BL3 editor, which this project has been entirely built upon and would not be possible without.
+- Arwent for transforming the FDH BL3 editor to work with Wonderlands.
+- [GreenLamp](https://github.com/Greenlamp2/) for continuing and adding many things to Arwent's work.
 - [gibbed](https://github.com/Gibbed) for their [Inventory Serial Number Database](https://github.com/gibbed/Borderlands3Dumps). It's what allows me to know what weapons you've got in your backpack! I also use their [Borderlands3Protos](https://github.com/gibbed/Borderlands3Protos) repository
 - [apocalyptech](https://github.com/apocalyptech/) for writing the incredibly helpful [guide](https://github.com/BLCM/BLCMods/wiki/Understanding-BL3-Item-Serial-Numbers) on parsing weapon serials.
 - [Benjamin Ruhl](https://github.com/benruehl) for creating [AdonisUI](https://github.com/benruehl/adonis-ui), the WPF toolkit I used for most of my UI development/theming.
