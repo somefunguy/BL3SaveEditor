@@ -18,7 +18,7 @@ A desktop based save _and_ profile editor for [Tiny Tina's Wonderlands](playwond
 - [FromDarkHell](https://github.com/fromdarkhell/) for creating the original BL3 editor, which this project has been entirely built upon and would not be possible without.
 - Arwent for transforming the FDH BL3 editor to work with Wonderlands.
 - [GreenLamp](https://github.com/Greenlamp2/) for continuing and adding many things to Arwent's work.
-- [gibbed](https://github.com/Gibbed) for their [Inventory Serial Number Database](https://github.com/gibbed/WonderlandsDumps). It's what allows me to know what weapons you've got in your backpack! I also use their [Borderlands3Protos](https://github.com/gibbed/WonderlandsProtos) repository
+- [gibbed](https://github.com/Gibbed) for their [Inventory Serial Number Database](https://github.com/gibbed/WonderlandsDumps). It's what allows me to know what weapons you've got in your backpack! I also use their [WonderlandsProtos](https://github.com/gibbed/WonderlandsProtos) repository
 - [apocalyptech](https://github.com/apocalyptech/) for writing the incredibly helpful [guide](https://github.com/BLCM/BLCMods/wiki/Understanding-BL3-Item-Serial-Numbers) on parsing weapon serials.
 - [Benjamin Ruhl](https://github.com/benruehl) for creating [AdonisUI](https://github.com/benruehl/adonis-ui), the WPF toolkit I used for most of my UI development/theming.
 - [xceed software](https://github.com/xceedsoftware) for creating the [Extended WPF Toolkit](https://github.com/xceedsoftware/wpftoolkit), allowing me to have a `Raw` tab and number up/downs.
