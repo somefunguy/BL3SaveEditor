@@ -2414,13 +2414,11 @@
                             </TextBlock>
 
                             <TextBlock FontSize="13" TextWrapping="Wrap">
-                                <Run FontWeight="Black" Text="Changelog - 1.1.5.7" />
+                                <Run FontWeight="Black" Text="Changelog - 1.1.5.8" />
                                 <LineBreak />
-                                <Run Text="        • Further tweak to ouput usable Save Wizard saves with custom companion names." />
+                                <Run Text="        • Adjustments to properly open and save Save Wizard saves with custom companion names." />
                                 <LineBreak />
-                                <Run Text="        • Added companion name field in Character tab." />
-                                <LineBreak />
-                                <Run FontWeight="Black" Text="        (REQUIRES EXISTING COMPANION NAME TO WORK)" />
+                                <Run Text="        • Imported Save Wizard saves WILL NOT WORK if you attempt to save as ANY non-JSON type" />
                                 <LineBreak />
                             </TextBlock>
 
