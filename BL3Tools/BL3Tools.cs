@@ -52,6 +52,7 @@ namespace BL3Tools
         {
             if (platform == Platform.JSON)
             {
+                
                 try
                 {
                     UE3Save saveGame = null;
@@ -86,36 +87,44 @@ namespace BL3Tools
                                 // change Save Wizard format from {petNickname: value} to
                                 // [{ key: petNickname, value: name}],
 
-                                if (!saveData[x].Contains("[]"))
+                                if (!saveData[x].Contains("["))
                                 {
-                                    // JSON format matches Save Wizard output
+                                   
+                                        // JSON format matches Save Wizard output
 
-                                    saveData[x] = "\"NicknameMappings\": [{";
-
-                                    x++;
-
-                                    var nickTemp = saveData[x].Split(':');
-
-                                    var nickKey = nickTemp[0];
-                                    var nickValue = nickTemp[1];
-
-                                    if (nickKey.Contains("petNicknameLich") ||
-                                        nickKey.Contains("petNicknameMushroom") ||
-                                        nickKey.Contains("petNicknameWyvern"))
-                                    {
-                                        saveData[x] = " \"key\": " + nickKey + ",";
+                                        saveData[x] = "\"NicknameMappings\": [{";
 
                                         x++;
 
-                                        saveData[x] = " \"value\": " + nickValue + "}],";
-                                    }
-                                    else
-                                    {
+                                        var nickTemp = saveData[x].Split(':');
+
+                                        var nickKey = nickTemp[0];
+                                        var nickValue = nickTemp[1];
+
+                                        if (nickKey.Contains("petNicknameLich") ||
+                                            nickKey.Contains("petNicknameMushroom") ||
+                                            nickKey.Contains("petNicknameWyvern"))
+                                        {
+                                            saveData[x] = " \"key\": " + nickKey + ",";
+
+                                            x++;
+
+                                            saveData[x] = " \"value\": " + nickValue + "}],";
+                                        }
+                                        else
+                                        {
+                                            x--;
+
+                                        //saveData[x] = "\"NicknameMappings\": [{\"key\": \"\",\"value\": \"\"}],";
+                                        saveData[x] = "\"NicknameMappings\": [],";
+
+                                        /*
                                         saveData[x] = " \"key\": \"\",";
 
-                                        x++;
+                                            x++;
 
-                                        saveData[x] = " \"value\": \"\"}],";
+                                            saveData[x] = " \"value\": \"\"}],";
+                                        */
                                     }
                                 }
                                 // JSON format does not match Save Wizard output
@@ -238,7 +247,23 @@ namespace BL3Tools
                         }
 
                         Character character = JsonConvert.DeserializeObject<Character>(String.Join("", saveData));
+
+                        // original saveGame object with invalid header information
+                        // which is fine if user sticks to JSON export
                         saveGame = new BL3Save(new GVASSave(-1, -1, -1, -1, -1, 0, null, -1, -1, new Dictionary<byte[], int>(), "BPSaveGame_Default_C"), character);
+                        
+                        // a very bad solution to faking buffer data saving as PC save
+                        // more than likely breaks something
+                        /*
+                        Dictionary<byte[], int> dictbuf = new Dictionary<byte[], int>();
+                        
+                        for (int i = 0; i < 236; i++)
+                        {
+                            dictbuf.Add(new byte[] {0x0}, 0);
+                        }
+
+                        saveGame = new BL3Save(new GVASSave(2, 516, 4, 20, 3, 2150344073, "OAK-PATCHWIN641-118\0O", 3, 59, dictbuf, "BPSaveGame_Default_C"), character);
+                        */
                         (saveGame as BL3Save).Platform = platform;
                         saveGame.filePath = filePath;
                     }
@@ -464,6 +489,10 @@ namespace BL3Tools
                                             x++;
 
                                             saveData[x] = "";
+                                        }
+                                        else
+                                        {
+                                            saveData[x] = " \"nickname_mappings\": {},";
                                         }
 
                                     }
