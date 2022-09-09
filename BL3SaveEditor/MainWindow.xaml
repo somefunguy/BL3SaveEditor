@@ -2414,11 +2414,9 @@
                             </TextBlock>
 
                             <TextBlock FontSize="13" TextWrapping="Wrap">
-                                <Run FontWeight="Black" Text="Changelog - 1.1.5.8" />
+                                <Run FontWeight="Black" Text="Changelog - 1.1.5.9" />
                                 <LineBreak />
-                                <Run Text="        • Adjustments to properly open and save Save Wizard saves with custom companion names." />
-                                <LineBreak />
-                                <Run Text="        • Imported Save Wizard saves WILL NOT WORK if you attempt to save as ANY non-JSON type" />
+                                <Run Text="        • Experimental support to save imported Save Wizard type as non-JSON type (PC/PS4)." />
                                 <LineBreak />
                             </TextBlock>
 
