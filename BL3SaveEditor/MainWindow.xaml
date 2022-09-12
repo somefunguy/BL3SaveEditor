@@ -2414,6 +2414,13 @@
                             </TextBlock>
 
                             <TextBlock FontSize="13" TextWrapping="Wrap">
+                                <Run FontWeight="Black" Text="Changelog - 1.1.5.9a" />
+                                <LineBreak />
+                                <Run Text="        • Minor fix. Rage Handle parts should populate properly." />
+                                <LineBreak />
+                            </TextBlock>
+                            
+                            <TextBlock FontSize="13" TextWrapping="Wrap">
                                 <Run FontWeight="Black" Text="Changelog - 1.1.5.9" />
                                 <LineBreak />
                                 <Run Text="        • Experimental support to save imported Save Wizard type as non-JSON type (PC/PS4)." />
