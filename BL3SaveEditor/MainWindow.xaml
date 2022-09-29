@@ -477,7 +477,7 @@
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Top"
                                         IsEnabled="{Binding bSaveLoaded}"
-                                        Maximum="50"
+                                        Maximum="100"
                                         Minimum="0"
                                         ToolTip="The unlocked level of Mayhem of your character."
                                         Value="{Binding saveGame.Character.GameStateSaveDataForPlaythroughs[0].MayhemUnlockedLevel, Mode=TwoWay}" />
@@ -500,7 +500,7 @@
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Top"
                                         IsEnabled="{Binding bSaveLoaded}"
-                                        Maximum="50"
+                                        Maximum="100"
                                         Minimum="0"
                                         ToolTip="The current enabled level of Mayhem of your character."
                                         Value="{Binding saveGame.Character.GameStateSaveDataForPlaythroughs[0].MayhemLevel, Mode=TwoWay}" />
@@ -2414,9 +2414,9 @@
                             </TextBlock>
 
                             <TextBlock FontSize="13" TextWrapping="Wrap">
-                                <Run FontWeight="Black" Text="Changelog - 1.1.5.9a" />
+                                <Run FontWeight="Black" Text="Changelog - 1.1.6.0" />
                                 <LineBreak />
-                                <Run Text="        • Minor fix. Rage Handle parts should populate properly." />
+                                <Run Text="        • Upped Max Chaos leve to 100" />
                                 <LineBreak />
                             </TextBlock>
                             
