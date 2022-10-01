@@ -1,6 +1,6 @@
 ## Tiny Tina's Wonderlands Save Editor
 
-A desktop based save _and_ profile editor for [Tiny Tina's Wonderlands](playwonderlands.2k.com/).
+A desktop based save _and_ profile editor for [Tiny Tina's Wonderlands](https://playwonderlands.2k.com/).
 
 ![](https://img.shields.io/tokei/lines/github/FromDarkHell/BL3SaveEditor?style=for-the-badge) ![](https://img.shields.io/github/downloads/FromDarkHell/BL3SaveEditor/total?style=for-the-badge)
 
