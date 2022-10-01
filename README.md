@@ -8,7 +8,7 @@ A desktop based save _and_ profile editor for [Tiny Tina's Wonderlands](https://
 
 1. Download the [7zip](https://7-zip.org) file on the [Releases]([https://github.com/somefunguy/TTWLSaveEditor/releases) tab.
 2. Extract the [7zip](https://7-zip.org) file to a folder of your choosing.
-3. Then run TTWSaveEditor.exe
+3. Run TTWSaveEditor.exe
 4. Click `Open`, then you can select either a profile (`profile.sav`) or a game save (`[NUMBERS].sav`).
 5. You can now edit your profile or game save to your hearts content!
 6. Once you think you're done editing your saves, you can save your file with either the `Save` button (which will overwrite your loaded file), or use the `Save As` button, allowing you to save to a new file. In either case, it will make backups to help keep your saves protected!
