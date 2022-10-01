@@ -1,4 +1,4 @@
-## Tiny Tina's Wonderland Save Editor
+## Tiny Tina's Wonderlands Save Editor
 
 A desktop based save _and_ profile editor for [Tiny Tina's Wonderlands](playwonderlands.2k.com/).
 
