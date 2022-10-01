@@ -22,7 +22,7 @@ A desktop based save _and_ profile editor for [Tiny Tina's Wonderlands](https://
 - [apocalyptech](https://github.com/apocalyptech/) for writing the incredibly helpful [guide](https://github.com/BLCM/BLCMods/wiki/Understanding-BL3-Item-Serial-Numbers) on parsing weapon serials.
 - [Benjamin Ruhl](https://github.com/benruehl) for creating [AdonisUI](https://github.com/benruehl/adonis-ui), the WPF toolkit I used for most of my UI development/theming.
 - [xceed software](https://github.com/xceedsoftware) for creating the [Extended WPF Toolkit](https://github.com/xceedsoftware/wpftoolkit), allowing me to have a `Raw` tab and number up/downs.
-- [Gearbox Software](https://www.gearboxsoftware.com/) of course for creating Borderlands 3.
+- [Gearbox Software](https://www.gearboxsoftware.com/) of course for creating Wonderlands.
 - Many others who helped test the editor as well as help me get my mind around some of the concepts.
 
 ### Support
