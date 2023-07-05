@@ -139,7 +139,7 @@
     <EmbeddedResource Include="GameData\Items\SerialDB\Inventory Serial Number Database.json" />
     <EmbeddedResource Include="GameData\Items\Mappings\balance_to_inv_key_redux.json" />
     <EmbeddedResource Include="GameData\Items\Mappings\part_name_mapping_redux.json" />
-    <EmbeddedResource Include="GameData\Items\SerialDB\Inventory Serial Number Database REDUX.json" />
+    <EmbeddedResource Include="GameData\Items\SerialDBR\Inventory Serial Number Database REDUX.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
