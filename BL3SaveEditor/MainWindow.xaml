@@ -257,6 +257,7 @@
                         FontWeight="Normal" />
 
                     <ComboBox
+                        Name="cbPlatform"
                         Height="25"
                         Margin="116,10,328,0"
                         HorizontalAlignment="Stretch"
@@ -838,7 +839,7 @@
                             </Grid>
                         </GroupBox.Header>
 
-                        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                        <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto">
                             <ItemsControl Name="TeleportersItmCntrl">
                                 <ItemsControl.ItemsSource>
                                     <MultiBinding Converter="{StaticResource TravelStationConverter1}">
@@ -1488,6 +1489,7 @@
                                         Content="Item Type: "
                                         FontWeight="Normal" />
                                     <ComboBox
+                                        Name="cbItemType"
                                         Margin="105,-137,20,0"
                                         VerticalAlignment="Top"
                                         IsEnabled="{Binding SelectedSerial.InventoryKey, TargetNullValue=False}"
@@ -2414,27 +2416,11 @@
                             </TextBlock>
 
                             <TextBlock FontSize="13" TextWrapping="Wrap">
-                                <Run FontWeight="Black" Text="Changelog - 1.1.6.0" />
+                                <Run FontWeight="Black" Text="v1.1.6.7" />
                                 <LineBreak />
-                                <Run Text="        • Upped Max Chaos leve to 100" />
+                                <Run Text="        • Supports REDUX v1.0.3 saves (via REDUX mode select)" />
                                 <LineBreak />
-                            </TextBlock>
-                            
-                            <TextBlock FontSize="13" TextWrapping="Wrap">
-                                <Run FontWeight="Black" Text="Changelog - 1.1.5.9" />
-                                <LineBreak />
-                                <Run Text="        • Experimental support to save imported Save Wizard type as non-JSON type (PC/PS4)." />
-                                <LineBreak />
-                            </TextBlock>
-
-                            <TextBlock FontSize="13" TextWrapping="Wrap">
-                                <Run FontWeight="Black" Text="Changelog - 2.5nd Pre-alpha testing" />
-                                <LineBreak />
-                                <Run Text="        • Added support for Save Wizard exported file (need a lot of tests, backup your saves)." />
-                                <LineBreak />
-                                <Run Text="        • Added missing slots unlocking options." />
-                                <LineBreak />
-                                <Run Text="        • Added Mayhem level options." />
+                                <Run Text="        • For testing purposes only. BACKUP YOUR ORIGINAL SAVES BEFORE USING!" />
                                 <LineBreak />
                             </TextBlock>
                         </WrapPanel>
@@ -2469,6 +2455,16 @@
                                 Content="Enable Dark Mode"
                                 IsChecked="True"
                                 Unchecked="DarkModeBox_Checked" />
+                            <CheckBox
+                                x:Name="ReduxMode"
+                                Width="130"
+                                Height="20"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Checked="ReduxMode_Checked"
+                                Content="Enable REDUX Mode"
+                                IsChecked="True"
+                                Unchecked="ReduxMode_Checked" />
                         </WrapPanel>
                     </Grid>
                 </Grid>

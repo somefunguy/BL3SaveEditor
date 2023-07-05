@@ -22,6 +22,7 @@ using AutoUpdaterDotNET;
 using System.Windows.Navigation;
 using System.Diagnostics;
 using System.Reflection;
+//using BL3Tools.GameData.Items;
 
 namespace TTWSaveEditor
 {
@@ -33,7 +34,7 @@ namespace TTWSaveEditor
     {
 
         #region Databinding Data
-        public static string Version { get; private set; } = "1.1.6.0";
+        public static string Version { get; private set; } = "1.1.6.7";
 
         public static RoutedCommand DuplicateCommand { get; } = new RoutedCommand();
         public static RoutedCommand DeleteCommand { get; } = new RoutedCommand();
@@ -43,6 +44,8 @@ namespace TTWSaveEditor
         public int maximumMayhemLevel { get; } = MayhemLevel.MaximumLevel;
         public bool bSaveLoaded { get; set; } = false;
         public bool showDebugMaps { get; set; } = false;
+
+
 
         private bool _ForceLegitParts = false;
         public bool ForceLegitParts
@@ -206,6 +209,7 @@ namespace TTWSaveEditor
                 SelectedSerial.Balance = InventorySerialDatabase.GetBalanceFromShortName(value);
             }
         }
+        
         public ListCollectionView ValidManufacturers
         {
             get
@@ -317,6 +321,7 @@ namespace TTWSaveEditor
 
         private static Debug.DebugConsole dbgConsole;
         private bool bLaunched = false;
+        
 
         /// <summary>
         /// The current profile object; will be null if we haven't loaded a profile
@@ -337,13 +342,36 @@ namespace TTWSaveEditor
             InitializeComponent();
             DataContext = this;
 
-            // Restore the dark mode state from last run
+            // component intialization complete
             bLaunched = true;
+
+            // Restore the dark mode state from last run
             CheckBox darkBox = (CheckBox)FindName("DarkModeBox");
             darkBox.IsChecked = Properties.Settings.Default.bDarkModeEnabled;
             DarkModeBox_Checked(darkBox, null);
 
+            // Restore the REDUX mode state from last run
+            CheckBox reduxBox = (CheckBox)FindName("ReduxMode");
+            bool bRedux = Properties.Settings.Default.bReduxModeEnabled;
+            ReduxMode.IsChecked = bRedux;
+            ReduxMode_Checked(reduxBox, null);
             dbgConsole = new Debug.DebugConsole();
+
+
+            if (bRedux) {
+                this.Title = "Tiny Tina's Wonderlands Save Editor **REDUX**";
+
+                // REDUX doesn't allow for different item types (Chaotic, Primordial, Ascended)
+                // so it is disabled here
+                ComboBox rdxITComboBox = (ComboBox)FindName("cbItemType");
+                rdxITComboBox.IsEnabled = false;
+
+                // REDUX is also only available on PC
+                // so platform selector is disabled
+                ComboBox rdxPlatComboBox = (ComboBox)FindName("cbPlatform");
+                rdxPlatComboBox.IsEnabled = false;
+            }
+            
 
             ((TabControl)FindName("TabCntrl")).SelectedIndex = ((TabControl)FindName("TabCntrl")).Items.Count - 1;
             //            AutoUpdater.CheckForUpdateEvent += AutoUpdaterOnCheckForUpdateEvent;
@@ -361,24 +389,50 @@ namespace TTWSaveEditor
 
         private void OpenSaveBtn_Click(object sender, RoutedEventArgs e)
         {
+            // get REDUX mode status
+            bool bRedux = Properties.Settings.Default.bReduxModeEnabled;
 
-            Dictionary<Platform, string> PlatformFilters = new Dictionary<Platform, string>() {
-                { Platform.PC, "PC Tiny Tina's Wonderlands Save/Profile (*.sav)|*.sav" },
-                { Platform.PS4, "PS4 Tiny Tina's Wonderlands Save/Profile (*.sav)|*.sav" },
-                { Platform.JSON, "PS4 Save Wizard Tiny Tina's Wonderlands Save/Profile (*.*)|*.*"}
-            };
-
-            OpenFileDialog fileDialog = new OpenFileDialog
+            // if not REDUX populate all platforms, else only PC
+            if (!bRedux) 
             {
-                Title = "Select Tiny Tina's Wonderlands Save/Profile",
-                Filter = string.Join("|", PlatformFilters.Values),
-                InitialDirectory = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "My Games", "Tiny Tina's Wonderlands", "Saved", "SaveGames"),
-            };
+                Dictionary<Platform, string> PlatformFilters = new Dictionary<Platform, string>() 
+                {
+                    { Platform.PC, "PC Tiny Tina's Wonderlands Save/Profile (*.sav)|*.sav" },
+                    { Platform.PS4, "PS4 Tiny Tina's Wonderlands Save/Profile (*.sav)|*.sav" },
+                    { Platform.JSON, "PS4 Save Wizard Tiny Tina's Wonderlands Save/Profile (*.*)|*.*"}
+                };
 
-            if (fileDialog.ShowDialog() == true)
+                OpenFileDialog fileDialog = new OpenFileDialog
+                {
+                    Title = "Select Tiny Tina's Wonderlands Save/Profile",
+                    Filter = string.Join("|", PlatformFilters.Values),
+                    InitialDirectory = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "My Games", "Tiny Tina's Wonderlands", "Saved", "SaveGames"),
+                };
+
+                if (fileDialog.ShowDialog() == true)
+                {
+                    Platform platform = PlatformFilters.Keys.ToArray()[fileDialog.FilterIndex - 1];
+                    OpenSave(fileDialog.FileName, platform);
+                }
+            }
+            else 
             {
-                Platform platform = PlatformFilters.Keys.ToArray()[fileDialog.FilterIndex - 1];
-                OpenSave(fileDialog.FileName, platform);
+                Dictionary<Platform, string> PlatformFilters = new Dictionary<Platform, string>() {
+                    { Platform.PC, "PC Tiny Tina's Wonderlands Save/Profile (*.sav)|*.sav" }
+                };
+
+                OpenFileDialog fileDialog = new OpenFileDialog
+                {
+                    Title = "Select Tiny Tina's Wonderlands Save/Profile",
+                    Filter = string.Join("|", PlatformFilters.Values),
+                    InitialDirectory = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "My Games", "Tiny Tina's Wonderlands", "Saved", "SaveGames"),
+                };
+
+                if (fileDialog.ShowDialog() == true)
+                {
+                    Platform platform = PlatformFilters.Keys.ToArray()[fileDialog.FilterIndex - 1];
+                    OpenSave(fileDialog.FileName, platform);
+                }
             }
         }
 
@@ -1282,6 +1336,61 @@ namespace TTWSaveEditor
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
             //AutoUpdater.Start(UpdateURL);
+        }
+
+        private bool changeReduxMode()
+        {
+            MessageBoxResult msgBoxResult = MessageBox.Show("Changing the REDUX mode will restart the application.\nYOU WILL LOSE ANY UNSAVED PROGRESS!\nAre you sure you want to proceed?", "REDUX Mode Change", MessageBoxButton.YesNo);
+
+            if (msgBoxResult == MessageBoxResult.Yes)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private void ReduxMode_Checked(object sender, RoutedEventArgs e)
+        {
+            if (bLaunched)
+            {
+                bool rmChecked = (bool)ReduxMode.IsChecked;
+
+                // get current REDUX database setting
+                bool bRedux = InventorySerialDatabase.bReduxDb;
+
+                // if REDUX mode has changed, store new bool and reset
+                if (bRedux != rmChecked) 
+                {
+                    // update REDUX mode setting in app
+                    Properties.Settings.Default.bReduxModeEnabled = rmChecked;
+                    Properties.Settings.Default.Save();
+
+                    // verify restart
+                    if (changeReduxMode()) 
+                    {
+                        // pass checked REDUX mode bool value to BL3Tools setting 
+                        InventorySerialDatabase.setIsRedux(rmChecked);
+
+                        // restart the application to reinitialize database to proper mode
+                        Process.Start(Process.GetCurrentProcess().MainModule.FileName);
+                        Application.Current.Shutdown();
+                    }
+                    else 
+                    { 
+                        // user cancelled, revert checkbox to previous state
+                        if (rmChecked == true) 
+                        { 
+                            ReduxMode.IsChecked = false; 
+                        }
+                        else 
+                        { 
+                            ReduxMode.IsChecked = true;
+                        } 
+                    }
+                }
+            }
         }
     }
 }
