@@ -113,6 +113,11 @@
     <Compile Include="Helpers\Helpers.cs" />
     <Compile Include="Platform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Save.cs" />
     <Compile Include="TMSUnpack\TMSArchive.cs" />
     <Compile Include="TMSUnpack\TMSUnpacker.cs" />
@@ -121,6 +126,7 @@
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
+    <None Include="app.config" />
     <None Include="FixProtobufs.ps1" />
     <EmbeddedResource Include="GameData\Items\Mappings\balance_to_inv_key.json" />
     <EmbeddedResource Include="GameData\Items\Mappings\part_name_mapping.json" />
@@ -131,7 +137,14 @@
     <EmbeddedResource Include="GameData\Items\Mappings\valid_generics.json" />
     <EmbeddedResource Include="GameData\Mappings\fast_travel_to_name.json" />
     <EmbeddedResource Include="GameData\Items\SerialDB\Inventory Serial Number Database.json" />
+    <EmbeddedResource Include="GameData\Items\Mappings\balance_to_inv_key_redux.json" />
+    <EmbeddedResource Include="GameData\Items\Mappings\part_name_mapping_redux.json" />
+    <EmbeddedResource Include="GameData\Items\SerialDB\Inventory Serial Number Database REDUX.json" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Protobufs\OakProfile.proto" />
     <None Include="Protobufs\OakSave.proto" />
     <None Include="Protobufs\OakShared.proto" />
