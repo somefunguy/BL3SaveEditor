@@ -30,18 +30,37 @@ namespace BL3Tools.GameData.Items {
 
         private static readonly string embeddedNameDatabase = "BL3Tools.GameData.Items.Mappings.part_name_mapping.json";
         private static readonly string embeddedPrefixDatabase = "BL3Tools.GameData.Items.Mappings.prefix_name_mapping.json";
+        private static readonly string embeddedReduxNameDatabase = "BL3Tools.GameData.Items.Mappings.part_name_mapping_redux.json";
 
         static InventoryNameDatabase() {
             Console.WriteLine("Initializing InventoryNameDatabase...");
 
             Assembly me = typeof(BL3Tools).Assembly;
 
-            using (Stream stream = me.GetManifestResourceStream(embeddedNameDatabase))
-            using (StreamReader reader = new StreamReader(stream)) {
-                string result = reader.ReadToEnd();
+            // set REDUX mode from project settings
+            bool isRedux = Properties.Settings.Default.bReduxModeEnabled;
 
-                LoadInventoryNameDatabase(result);
+            if (isRedux) {
+                using (Stream stream = me.GetManifestResourceStream(embeddedReduxNameDatabase))
+
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string result = reader.ReadToEnd();
+
+                    LoadInventoryNameDatabase(result);
+                }
             }
+            else {
+                using (Stream stream = me.GetManifestResourceStream(embeddedNameDatabase))
+
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string result = reader.ReadToEnd();
+
+                    LoadInventoryNameDatabase(result);
+                }
+            }
+            
 
             using (Stream stream = me.GetManifestResourceStream(embeddedPrefixDatabase))
             using (StreamReader reader = new StreamReader(stream)) {

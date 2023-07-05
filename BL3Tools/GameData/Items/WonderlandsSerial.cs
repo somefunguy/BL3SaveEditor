@@ -42,9 +42,19 @@ namespace BL3Tools.GameData.Items
         {
             byte[] data = EncryptSerialToBytes(seed);
             // return $"TTW({Convert.ToBase64String(data)})";
+
+            // set REDUX mode from project settings
+            bool isRedux = Properties.Settings.Default.bReduxModeEnabled;
+
+            if (isRedux) {
+                // use new WLR() serial for REDUX
+                return $"WLR({Convert.ToBase64String(data)})";
+            }
+            else {
+                // use standard WL()
+                return $"WL({Convert.ToBase64String(data)})";
+            }
             
-            // use new WL() serial
-            return $"WL({Convert.ToBase64String(data)})";
         }
 
         /// <summary>
@@ -144,6 +154,17 @@ namespace BL3Tools.GameData.Items
             // introduce checking for WL() serial
             if (serial.ToLower().StartsWith("wl(") && serial.EndsWith(")"))
                 serial = serial.Remove(0, 3).Remove(serial.Length - 4);
+            
+            // set REDUX mode from project settings
+            bool isRedux = Properties.Settings.Default.bReduxModeEnabled;
+
+            // if REDUX mode is selected, allow for WLR() serials
+            if (isRedux) {
+                // check for WLR() for REDUX
+                if (serial.ToLower().StartsWith("wlr(") && serial.EndsWith(")"))
+                    serial = serial.Remove(0, 4).Remove(serial.Length - 5);
+            }
+
             return DecryptSerial(Convert.FromBase64String(serial));
         }
 

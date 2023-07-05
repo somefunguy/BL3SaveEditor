@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Linq;
+using System.Windows.Controls;
 
 namespace BL3Tools.GameData.Items {
     public static class InventoryKeyDB {
@@ -19,20 +20,38 @@ namespace BL3Tools.GameData.Items {
         public static Dictionary<string, string> KeyDictionary { get; private set; } = null;
 
         public static Dictionary<string, List<string>> ItemTypeToKey { get; private set; } = null;
-
+        
         private static readonly string embeddedDatabasePath = "BL3Tools.GameData.Items.Mappings.balance_to_inv_key.json";
+        private static readonly string embeddedReduxDatabasePath = "BL3Tools.GameData.Items.Mappings.balance_to_inv_key_redux.json";
 
         static InventoryKeyDB() {
             Console.WriteLine("Initializing InventoryKeyDB...");
 
             Assembly me = typeof(BL3Tools).Assembly;
 
-            using (Stream stream = me.GetManifestResourceStream(embeddedDatabasePath))
-            using (StreamReader reader = new StreamReader(stream)) {
-                string result = reader.ReadToEnd();
+            // set REDUX mode from project settings
+            bool isRedux = Properties.Settings.Default.bReduxModeEnabled;
 
-                LoadInventoryKeyDatabase(result);
+            // load either redux database or normal
+            if (isRedux) {
+                using (Stream stream = me.GetManifestResourceStream(embeddedReduxDatabasePath))
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string result = reader.ReadToEnd();
+
+                    LoadInventoryKeyDatabase(result);
+                }
             }
+            else {
+                using (Stream stream = me.GetManifestResourceStream(embeddedDatabasePath))
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string result = reader.ReadToEnd();
+
+                    LoadInventoryKeyDatabase(result);
+                }
+            }
+            
         }
 
         /// <summary>
@@ -65,7 +84,9 @@ namespace BL3Tools.GameData.Items {
                     { "Heavy Weapons", invKeys.Where(x => x.Contains("_HW_")).ToList() },
                     { "Shotguns", invKeys.Where(x => x.Contains("_SG_") || x.Contains("_Shotgun_")).ToList() },
                     { "Sniper Rifles", invKeys.Where(x => x.Contains("_SR_")).ToList() },
-                    { "Customizations", invKeys.Where(x => x.Contains("Customization")).ToList() },
+                    //{ "Customizations", invKeys.Where(x => x.Contains("Customization")).ToList() },
+                    //test InventoryBalanceData to force population of customization parts
+                    //{ "Customizations", invKeys.Where(x => x.Contains("InventoryBalanceData")).ToList() },
                 }.OrderBy(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
 
                 return true;

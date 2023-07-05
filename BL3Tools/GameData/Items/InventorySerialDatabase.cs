@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Windows.Forms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
@@ -64,29 +65,62 @@ namespace BL3Tools.GameData.Items {
         /// </summary>
         public static List<string> OakCustomizationData { get; private set; } = null;
 
+        public static bool bReduxDb = false;
+        public static void setIsRedux(bool isRedux) {
+            // set REDUX mode from checkbox
+            Properties.Settings.Default.bReduxModeEnabled = isRedux;
+
+            // save local settings for REDUX mode
+            Properties.Settings.Default.bReduxModeEnabled = isRedux;
+            Properties.Settings.Default.Save();
+        }
+
         private static readonly string embeddedDatabasePath = "BL3Tools.GameData.Items.SerialDB.Inventory Serial Number Database.json";
         private static readonly string embeddedInvDataDBPath = "BL3Tools.GameData.Items.Mappings.balance_to_inv_data.json";
         private static readonly string embeddedPartDBPath = "BL3Tools.GameData.Items.Mappings.valid_part_database.json";
         private static readonly string embeddedGenericsPath = "BL3Tools.GameData.Items.Mappings.valid_generics.json";
-
+        private static readonly string embeddedReduxDatabasePath = "BL3Tools.GameData.Items.SerialDB.Inventory Serial Number Database REDUX.json";
         static InventorySerialDatabase() {
             Console.WriteLine("Initializing InventorySerialDatabase...");
 
             Assembly me = typeof(BL3Tools).Assembly;
 
-            using (Stream stream = me.GetManifestResourceStream(embeddedDatabasePath))
-            using (StreamReader reader = new StreamReader(stream)) {
-                string result = reader.ReadToEnd();
+            // set REDUX mode from project settings
+            bool isRedux = Properties.Settings.Default.bReduxModeEnabled;
 
-                LoadInventorySerialDatabase(result);
+            //set global REDUX database usage variable
+            bReduxDb = isRedux;
+
+            // load either redux database or normal
+            if (isRedux) {
+                using (Stream stream = me.GetManifestResourceStream(embeddedReduxDatabasePath))
+
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string result = reader.ReadToEnd();
+
+                    LoadInventorySerialDatabase(result);
+                }
+            }
+            else {
+                using (Stream stream = me.GetManifestResourceStream(embeddedDatabasePath))
+
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string result = reader.ReadToEnd();
+
+                    LoadInventorySerialDatabase(result);
+                }
             }
 
-            using (Stream stream = me.GetManifestResourceStream(embeddedInvDataDBPath))
-            using (StreamReader reader = new StreamReader(stream)) {
-                string result = reader.ReadToEnd();
+           using (Stream stream = me.GetManifestResourceStream(embeddedInvDataDBPath))
 
-                LoadInventoryDataDatabase(result);
-            }
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string result = reader.ReadToEnd();
+
+                    LoadInventoryDataDatabase(result);
+                }
 
             using (Stream stream = me.GetManifestResourceStream(embeddedPartDBPath))
             using (StreamReader reader = new StreamReader(stream)) {
