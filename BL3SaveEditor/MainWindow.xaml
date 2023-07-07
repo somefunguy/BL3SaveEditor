@@ -473,6 +473,7 @@
                                         FontWeight="Normal" />
 
                                     <xctk:IntegerUpDown
+                                        Name="ChaosUnlockedLevel"
                                         Height="23"
                                         Margin="140,0,0,0"
                                         HorizontalAlignment="Stretch"
@@ -496,6 +497,7 @@
                                         FontWeight="Normal" />
 
                                     <xctk:IntegerUpDown
+                                        Name="ChaosCurrentLevel"
                                         Height="23"
                                         Margin="140,0,0,0"
                                         HorizontalAlignment="Stretch"

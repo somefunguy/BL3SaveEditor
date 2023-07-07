@@ -22,6 +22,7 @@ using AutoUpdaterDotNET;
 using System.Windows.Navigation;
 using System.Diagnostics;
 using System.Reflection;
+using Xceed.Wpf.Toolkit;
 //using BL3Tools.GameData.Items;
 
 namespace TTWSaveEditor
@@ -370,6 +371,12 @@ namespace TTWSaveEditor
                 // so platform selector is disabled
                 ComboBox rdxPlatComboBox = (ComboBox)FindName("cbPlatform");
                 rdxPlatComboBox.IsEnabled = false;
+
+                // REDUX max chaos level is 10
+                IntegerUpDown iudChaosUnlocked = (IntegerUpDown)FindName("ChaosUnlockedLevel");
+                iudChaosUnlocked.Maximum = 10;
+                IntegerUpDown iudChaosCurrent = (IntegerUpDown)FindName("ChaosCurrentLevel");
+                iudChaosCurrent.Maximum = 10;
             }
             
 
