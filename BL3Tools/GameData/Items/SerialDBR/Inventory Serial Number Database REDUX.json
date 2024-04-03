@@ -3513,7 +3513,15 @@
       "/Game/PatchDLC/Mayhem2/Gear/Weapon/_Shared/_Unique/Monarch/Balance/Balance_AR_VLA_Monarch.Balance_AR_VLA_Monarch",
       "/Game/Gear/SpellMods/_Unique/FrozenOrb2/Balance/Balance_Spell_FrozenOrb2.Balance_Spell_FrozenOrb2",
       "/Game/Gear/Melee/Swords/_Shared/_Design/_Unique/TwinSoul2/Balance_M_Sword_TwinSoul2.Balance_M_Sword_TwinSoul2",
-      "/Game/Gear/Weapons/Shotguns/Jakobs/_Shared/_Design/_Unique/_Legendary/Gunbroom/Balance/Balance_SG_JAK_Gunbroom.Balance_SG_JAK_Gunbroom"
+      "/Game/Gear/Weapons/Shotguns/Jakobs/_Shared/_Design/_Unique/_Legendary/Gunbroom/Balance/Balance_SG_JAK_Gunbroom.Balance_SG_JAK_Gunbroom",
+      "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Interfacer/Balance/Balance_SG_HYP_Interfacer.Balance_SG_HYP_Interfacer",
+      "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Mortis/Balance/Balance_PS_JAK_Mortis.Balance_PS_JAK_Mortis",
+      "/Game/Gear/Weapons/Pistols/Dahl/_Shared/_Design/_Unique/Dart/Balance/Balance_DAL_PS_Dart.Balance_DAL_PS_Dart",
+      "/Game/Gear/Weapons/AssaultRifles/Dahl/_Shared/_Design/_Unique/Mistrial/Balance/Balance_DAL_AR_Mistrial2.Balance_DAL_AR_Mistrial2",
+      "/Game/Gear/Weapons/Shotguns/Torgue/_Shared/_Design/_Unique/Tarantula/Balance/Balance_SG_Torgue_05_Tarantula.Balance_SG_Torgue_05_Tarantula",
+      "/Game/Gear/Weapons/SniperRifles/Vladof/_Shared/_Design/_Unique/Mercy/Balance/Balance_VLA_SR_05_Mercy.Balance_VLA_SR_05_Mercy",
+      "/Game/Gear/Shields/_Design/_Uniques/Ghoulist/Balance/InvBalD_Shield_Ghoulist.InvBalD_Shield_Ghoulist",
+      "/Game/PatchDLC/Dandelion/Gear/Weapon/_Unique/Varlope/Balance/Balance_AR_TOR_Varlope.Balance_AR_TOR_Varlope"
     ]
   },
   "ItemPoolData": {
@@ -5035,7 +5043,9 @@
       "/Game/Gear/Weapons/AssaultRifles/Dahl/_Shared/_Design/_Unique/Barrage/Parts/Part_DAL_AR_Barrel_Barrage.Part_DAL_AR_Barrel_Barrage",
       "/Game/Gear/Weapons/AssaultRifles/Dahl/_Shared/_Design/_Unique/Barrage/Parts/Part_DAL_AR_Material_Barrage.Part_DAL_AR_Material_Barrage",
       "/Game/Gear/Weapons/AssaultRifles/Dahl/_Shared/_Design/Parts/Material/Part_DAL_AR_Material_Archaic.Part_DAL_AR_Material_Archaic",
-      "/Game/Gear/Weapons/AssaultRifles/Dahl/_Shared/_Design/Parts/Material/Part_DAL_AR_Material_Host.Part_DAL_AR_Material_Host"
+      "/Game/Gear/Weapons/AssaultRifles/Dahl/_Shared/_Design/Parts/Material/Part_DAL_AR_Material_Host.Part_DAL_AR_Material_Host",
+      "/Game/Gear/Weapons/AssaultRifles/Dahl/_Shared/_Design/Parts/Material/Part_DAL_AR_Material_Render.Part_DAL_AR_Material_Render",
+      "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Soulrender/Parts/Part_DAL_AR_Barrel_Soulrender.Part_DAL_AR_Barrel_Soulrender"
     ]
   },
   "BPInvPart_Amulet_C": {
@@ -5447,7 +5457,9 @@
       "/Game/Gear/Shields/_Design/_Uniques/Transistor2/Parts/Part_Shield_Aug_ANS_Transistor2.Part_Shield_Aug_ANS_Transistor2",
       "/Game/Gear/Shields/_Design/_Uniques/TrickMirror2/Parts/Part_Shield_Aug_ANS_TrickMirror2.Part_Shield_Aug_ANS_TrickMirror2",
       "/Game/Gear/Shields/_Design/_Uniques/SquireShield/Parts/Part_Shield_Aug_ANS_SquireShield.Part_Shield_Aug_ANS_SquireShield",
-      "/Game/Gear/Shields/_Design/_Uniques/SquireShield/Parts/Part_Shield_Mat_ANS_SquireShield.Part_Shield_Mat_ANS_SquireShield"
+      "/Game/Gear/Shields/_Design/_Uniques/SquireShield/Parts/Part_Shield_Mat_ANS_SquireShield.Part_Shield_Mat_ANS_SquireShield",
+      "/Game/Gear/Shields/_Design/_Uniques/Ghoulist/Parts/Part_Shield_Aug_ANS_Ghoulist.Part_Shield_Aug_ANS_Ghoulist",
+      "/Game/Gear/Shields/_Design/_Uniques/Ghoulist/Parts/Part_Shield_Mat_ANS_Ghoulist.Part_Shield_Mat_ANS_Ghoulist"
     ]
   },
   "BPInvPart_SpellMod_C": {
@@ -5959,7 +5971,9 @@
       "/Game/Gear/Weapons/AssaultRifles/Torgue/_Shared/_Design/Parts/Barrel/Barrel_04/Part_AR_TOR_Barrel_04_C.Part_AR_TOR_Barrel_04_C",
       "/Game/Gear/Weapons/AssaultRifles/Torgue/_Shared/_Design/Parts/PincushionType/Part_TOR_AR_PincushionType_01.Part_TOR_AR_PincushionType_01",
       "/Game/Gear/Weapons/AssaultRifles/Torgue/_Shared/_Design/Parts/PincushionType/Part_TOR_AR_PincushionType_02.Part_TOR_AR_PincushionType_02",
-      "/Game/PatchDLC/Indigo4/Gear/Weapons/AssaultRifles/Torgue/_Shared/_Design/_Unique/Vengeance/Parts/Part_TOR_Barrel_Vengeance.Part_TOR_Barrel_Vengeance"
+      "/Game/PatchDLC/Indigo4/Gear/Weapons/AssaultRifles/Torgue/_Shared/_Design/_Unique/Vengeance/Parts/Part_TOR_Barrel_Vengeance.Part_TOR_Barrel_Vengeance",
+      "/Game/PatchDLC/Dandelion/Gear/Weapon/_Unique/Varlope/Parts/Part_AR_TOR_Barrel_Varlope.Part_AR_TOR_Barrel_Varlope",
+      "/Game/PatchDLC/Dandelion/Gear/Weapon/_Unique/Varlope/Parts/Part_AR_TOR_Material_Varlope.Part_AR_TOR_Material_Varlope"
     ]
   },
   "BPInvPart_VLA_AR_C": {
@@ -6501,7 +6515,12 @@
       "/Game/Gear/Weapons/Pistols/Dahl/_Shared/_Design/_Unique/Apex/Parts/Part_DAL_PS_Material_Apex.Part_DAL_PS_Material_Apex",
       "/Game/Gear/Weapons/Pistols/Dahl/_Shared/_Design/_Unique/Perceiver/Parts/Part_DAL_PS_Material_Perceiver.Part_DAL_PS_Material_Perceiver",
       "/Game/Gear/Weapons/Pistols/Dahl/_Shared/_Design/_Unique/Apex/Parts/Part_Dal_PS_Ele_Apex.Part_Dal_PS_Ele_Apex",
-      "/Game/Gear/Weapons/Pistols/Dahl/_Shared/_Design/_Unique/Perceiver/Parts/Part_Dal_PS_Barrel_Perceiver2.Part_Dal_PS_Barrel_Perceiver2"
+      "/Game/Gear/Weapons/Pistols/Dahl/_Shared/_Design/_Unique/Perceiver/Parts/Part_Dal_PS_Barrel_Perceiver2.Part_Dal_PS_Barrel_Perceiver2",
+      "/Game/Gear/Weapons/Pistols/Dahl/_Shared/_Design/_Unique/Dart/Parts/Part_Dal_PS_Mat_Dart.Part_Dal_PS_Mat_Dart",
+      "/Game/Gear/Weapons/Pistols/Dahl/_Shared/_Design/_Unique/Dart/Parts/Part_Dal_PS_Barrel_DartE.Part_Dal_PS_Barrel_DartE",
+      "/Game/Gear/Weapons/Pistols/Dahl/_Shared/_Design/_Unique/Dart/Parts/Part_Dal_PS_Barrel_DartM.Part_Dal_PS_Barrel_DartM",
+      "/Game/Gear/Weapons/Pistols/Dahl/_Shared/_Design/_Unique/Dart/Parts/Part_Dal_PS_Barrel_DartR.Part_Dal_PS_Barrel_DartR",
+      "/Game/Gear/Weapons/Pistols/Dahl/_Shared/_Design/_Unique/Dart/Parts/Part_Dal_PS_Barrel_DartC.Part_Dal_PS_Barrel_DartC"
     ]
   },
   "BPInvPart_Jakobs_Pistol_C": {
@@ -6580,7 +6599,12 @@
       "/Game/Gear/Weapons/Pistols/Jakobs/_Shared/_Design/Parts/PincushionType/Part_JAK_PS_PincushionType_02.Part_JAK_PS_PincushionType_02",
       "/Game/Gear/Weapons/Pistols/Jakobs/_Shared/_Design/_Unique/Pookie/Parts/Part_PS_JAK_Barrel_02_Pookie.Part_PS_JAK_Barrel_02_Pookie",
       "/Game/Gear/Weapons/Pistols/Jakobs/_Shared/_Design/_Unique/Pookie/Parts/Part_PS_JAK_Grip_04_Pookie.Part_PS_JAK_Grip_04_Pookie",
-      "/Game/Gear/Weapons/Pistols/Jakobs/_Shared/_Design/_Unique/Pookie/Parts/Part_PS_JAK_Material_Pookie.Part_PS_JAK_Material_Pookie"
+      "/Game/Gear/Weapons/Pistols/Jakobs/_Shared/_Design/_Unique/Pookie/Parts/Part_PS_JAK_Material_Pookie.Part_PS_JAK_Material_Pookie",
+      "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Mortis/Parts/Part_PS_JAK_Barrel_MortisC.Part_PS_JAK_Barrel_MortisC",
+      "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Mortis/Parts/Part_PS_JAK_Barrel_MortisE.Part_PS_JAK_Barrel_MortisE",
+      "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Mortis/Parts/Part_PS_JAK_Barrel_MortisM.Part_PS_JAK_Barrel_MortisM",
+      "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Mortis/Parts/Part_PS_JAK_Barrel_MortisR.Part_PS_JAK_Barrel_MortisR",
+      "/Game/Gear/Weapons/Pistols/Jakobs/_Shared/_Design/_Unique/MasterworkCrossbow/Parts/Part_PS_JAK_Material_MasterworkCrossbos.Part_PS_JAK_Material_MasterworkCrossbos"
     ]
   },
   "BPInvPart_PS_MAL_C": {
@@ -6958,7 +6982,12 @@
       "/Game/Gear/Weapons/Shotguns/Hyperion/_Shared/_Design/_Unique/LastRites/Parts/Part_SG_Hyp_Material_LastRites.Part_SG_Hyp_Material_LastRites",
       "/Game/PatchDLC/Indigo3/Gear/Weapons/Shotgun/Hyperion/_Shared/_Design/_Unique/FaceStabber/Parts/Part_SG_Hyp_Barrel_FaceStab.Part_SG_Hyp_Barrel_FaceStab",
       "/Game/PatchDLC/Indigo3/Gear/Weapons/Shotgun/Hyperion/_Shared/_Design/_Unique/FaceStabber/Parts/Part_SG_Hyp_Material_FacePuncher.Part_SG_Hyp_Material_FacePuncher",
-      "/Game/PatchDLC/Indigo3/Gear/Weapons/Shotgun/Hyperion/_Shared/_Design/_Unique/FaceStabber/Parts/Part_SG_Hyp_Mag_FaceStabber.Part_SG_Hyp_Mag_FaceStabber"
+      "/Game/PatchDLC/Indigo3/Gear/Weapons/Shotgun/Hyperion/_Shared/_Design/_Unique/FaceStabber/Parts/Part_SG_Hyp_Mag_FaceStabber.Part_SG_Hyp_Mag_FaceStabber",
+      "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Interfacer/Parts/Part_SG_Hyp_Barrel_InterfacerE.Part_SG_Hyp_Barrel_InterfacerE",
+      "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Interfacer/Parts/Part_SG_Hyp_Barrel_InterfacerM.Part_SG_Hyp_Barrel_InterfacerM",
+      "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Interfacer/Parts/Part_SG_Hyp_Barrel_InterfacerR.Part_SG_Hyp_Barrel_InterfacerR",
+      "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Interfacer/Parts/Part_SG_Hyp_Barrel_InterfacerV.Part_SG_Hyp_Barrel_InterfacerV",
+      "/Game/Gear/Weapons/Shotguns/Hyperion/_Shared/_Design/_Unique/RedHellion/Parts/Part_SG_Hyp_Material_RedHellios.Part_SG_Hyp_Material_RedHellios"
     ]
   },
   "BPInvPart_SG_JAK_C": {
@@ -7223,7 +7252,10 @@
       "/Game/Gear/Weapons/Shotguns/Torgue/_Shared/_Design/_Unique/Swordsplosion/Parts/Part_SG_Torgue_Barrel_Swordsplosion_C.Part_SG_Torgue_Barrel_Swordsplosion_C",
       "/Game/Gear/Weapons/Shotguns/Torgue/_Shared/_Design/_Unique/Swordruption/Parts/Part_SG_Torgue_Barrel_Swordruption.Part_SG_Torgue_Barrel_Swordruption",
       "/Game/Gear/Weapons/Shotguns/Torgue/_Shared/_Design/_Unique/Diplomacy/Parts/Part_SG_Torgue_Material_Diplomacy.Part_SG_Torgue_Material_Diplomacy",
-      "/Game/Gear/Weapons/Shotguns/Torgue/_Shared/_Design/_Unique/HawkinsWrath/Parts/Part_SG_Torgue_Magazine_HawkinsWrath.Part_SG_Torgue_Magazine_HawkinsWrath"
+      "/Game/Gear/Weapons/Shotguns/Torgue/_Shared/_Design/_Unique/HawkinsWrath/Parts/Part_SG_Torgue_Magazine_HawkinsWrath.Part_SG_Torgue_Magazine_HawkinsWrath",
+      "/Game/Gear/Weapons/Shotguns/Torgue/_Shared/_Design/_Unique/Tarantula/Parts/Part_SG_Torgue_Barrel_Tarantula.Part_SG_Torgue_Barrel_Tarantula",
+      "/Game/Gear/Weapons/Shotguns/Torgue/_Shared/_Design/_Unique/Tarantula/Parts/Part_SG_Torgue_Magazine_Tarantula.Part_SG_Torgue_Magazine_Tarantula",
+      "/Game/Gear/Weapons/Shotguns/Torgue/_Shared/_Design/_Unique/Tarantula/Parts/Part_SG_Torgue_Material_Tarantula.Part_SG_Torgue_Material_Tarantula"
     ]
   },
   "BPInvPart_Dahl_SMG_C": {
@@ -8032,7 +8064,13 @@
       "/Game/Gear/Weapons/SniperRifles/Vladof/_Shared/_Design/Parts/PincushionType/Part_SR_VLA_PincushionType_01.Part_SR_VLA_PincushionType_01",
       "/Game/Gear/Weapons/SniperRifles/Vladof/_Shared/_Design/Parts/PincushionType/Part_SR_VLA_PincushionType_02.Part_SR_VLA_PincushionType_02",
       "/Game/Gear/Weapons/SniperRifles/Vladof/_Shared/_Design/_Unique/DrylsFury/Parts/Part_SR_VLA_Material_DrylsFury.Part_SR_VLA_Material_DrylsFury",
-      "/Game/Gear/Weapons/SniperRifles/Vladof/_Shared/_Design/_Unique/PortableSawmill/Parts/Part_SR_VLA_Material_PortableSawmill.Part_SR_VLA_Material_PortableSawmill"
+      "/Game/Gear/Weapons/SniperRifles/Vladof/_Shared/_Design/_Unique/PortableSawmill/Parts/Part_SR_VLA_Material_PortableSawmill.Part_SR_VLA_Material_PortableSawmill",
+      "/Game/Gear/Weapons/SniperRifles/Vladof/_Shared/_Design/_Unique/Mercy/Parts/Part_SR_VLA_Material_Mercy.Part_SR_VLA_Material_Mercy",
+      "/Game/Gear/Weapons/SniperRifles/Vladof/_Shared/_Design/_Unique/Mercy/Parts/Part_SR_VLA_Barrel_Mercy.Part_SR_VLA_Barrel_Mercy",
+      "/Game/Gear/Weapons/SniperRifles/Vladof/_Shared/_Design/_Unique/Mercy/Parts/Part_SR_VLA_Barrel_MercyM.Part_SR_VLA_Barrel_MercyM",
+      "/Game/Gear/Weapons/SniperRifles/Vladof/_Shared/_Design/_Unique/Mercy/Parts/Part_SR_VLA_Barrel_MercyC.Part_SR_VLA_Barrel_MercyC",
+      "/Game/Gear/Weapons/SniperRifles/Vladof/_Shared/_Design/_Unique/Mercy/Parts/Part_SR_VLA_Barrel_MercyR.Part_SR_VLA_Barrel_MercyR",
+      "/Game/Gear/Weapons/SniperRifles/Vladof/_Shared/_Design/Parts/Underbarrel/Underbarrel_01/Part_SR_VLA_Underbarrel_Mercy.Part_SR_VLA_Underbarrel_Mercy"
     ]
   },
   "BPInvPart_Pauldron_C": {
