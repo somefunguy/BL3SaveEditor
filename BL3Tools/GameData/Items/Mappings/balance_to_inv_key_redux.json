@@ -1914,5 +1914,14 @@
 "/Game/Gear/Weapons/HeavyWeapons/Vladof/_Shared/_Design/_Unique/RocketJumper/Balance/Balance_RocketJumper.Balance_RocketJumper": "BPInvPart_HW_VLA_C",
 "/Game/Gear/Weapons/Pistols/Tediore/Shared/_Design/_Unique/TheHost/Balance/Balance_PS_Tediore_05_TheHost2.Balance_PS_Tediore_05_TheHost2": "BPInvPart_Tediore_Pistol_C",
 "/Game/Gear/Weapons/Pistols/Dahl/_Shared/_Design/_Unique/Perceiver/Balance/Balance_DAL_PS_05_Perceiver2.Balance_DAL_PS_05_Perceiver2": "BPInvPart_PS_DAL_C",
-"/Game/Gear/Melee/Swords/_Shared/_Design/_Unique/TwinSoul2/Balance_M_Sword_TwinSoul2.Balance_M_Sword_TwinSoul2": "BPInvPart_Melee_Sword_C"
+"/Game/Gear/Melee/Swords/_Shared/_Design/_Unique/TwinSoul2/Balance_M_Sword_TwinSoul2.Balance_M_Sword_TwinSoul2": "BPInvPart_Melee_Sword_C",
+
+"/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Interfacer/Balance/Balance_SG_HYP_Interfacer.Balance_SG_HYP_Interfacer": "BPInvPart_Hyperion_Shotgun_C",
+"/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Mortis/Balance/Balance_PS_JAK_Mortis.Balance_PS_JAK_Mortis": "BPInvPart_Jakobs_Pistol_C",
+"/Game/Gear/Weapons/Pistols/Dahl/_Shared/_Design/_Unique/Dart/Balance/Balance_DAL_PS_Dart.Balance_DAL_PS_Dart": "BPInvPart_PS_DAL_C",
+"/Game/Gear/Weapons/AssaultRifles/Dahl/_Shared/_Design/_Unique/Mistrial/Balance/Balance_DAL_AR_Mistrial2.Balance_DAL_AR_Mistrial2": "BPInvPart_AR_DAL_C",
+"/Game/Gear/Weapons/Shotguns/Torgue/_Shared/_Design/_Unique/Tarantula/Balance/Balance_SG_Torgue_05_Tarantula.Balance_SG_Torgue_05_Tarantula": "BPInvPart_SG_Torgue_C",
+"/Game/Gear/Weapons/SniperRifles/Vladof/_Shared/_Design/_Unique/Mercy/Balance/Balance_VLA_SR_05_Mercy.Balance_VLA_SR_05_Mercy": "BPInvPart_VLA_SR_C",
+"/Game/Gear/Shields/_Design/_Uniques/Ghoulist/Balance/InvBalD_Shield_Ghoulist.InvBalD_Shield_Ghoulist": "BPInvPart_Shield_C",
+"/Game/PatchDLC/Dandelion/Gear/Weapon/_Unique/Varlope/Balance/Balance_AR_TOR_Varlope.Balance_AR_TOR_Varlope": "BPInvPart_AR_TOR_C"
 }
