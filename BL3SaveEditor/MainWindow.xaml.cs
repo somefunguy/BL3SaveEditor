@@ -23,7 +23,6 @@ using System.Windows.Navigation;
 using System.Diagnostics;
 using System.Reflection;
 using Xceed.Wpf.Toolkit;
-//using BL3Tools.GameData.Items;
 
 namespace TTWSaveEditor
 {
@@ -35,7 +34,7 @@ namespace TTWSaveEditor
     {
 
         #region Databinding Data
-        public static string Version { get; private set; } = "1.1.6.7";
+        public static string Version { get; private set; } = "1.1.6.9";
 
         public static RoutedCommand DuplicateCommand { get; } = new RoutedCommand();
         public static RoutedCommand DeleteCommand { get; } = new RoutedCommand();
